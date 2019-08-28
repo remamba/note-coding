@@ -1,0 +1,48 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="300" height="300"></canvas>
+		<button onclick='drawRect()'>画矩形</button>
+		<button onclick='drawRectangle()'>画三角形</button>
+		<button onclick='drawCircle()'>画圆形</button>
+	</body>
+	<script>
+		let canvas = null;
+		let ctx = null;
+		document.body.onload = function() {
+			canvas = document.querySelector('#canvas');
+			if (canvas.getContext) {
+				ctx = canvas.getContext('2d');
+			}
+		}
+
+		function drawRect() {
+			ctx.clearRect(0, 0, 300, 300);
+			ctx.fillRect(0, 0, 100, 100)
+			ctx.clearRect(20, 20, 60, 60)
+			ctx.strokeRect(30, 30, 40, 40)
+		}
+
+		function drawRectangle() {
+			ctx.clearRect(0, 0, 300, 300);
+			ctx.beginPath();
+			ctx.moveTo(75, 50);
+    		ctx.lineTo(100, 75);
+    		ctx.lineTo(100, 25);
+			ctx.closePath();
+			ctx.fill();
+		}
+
+		function drawCircle() {
+			ctx.clearRect(0, 0, 300, 300);
+			ctx.arc(75, 75, 50, 0, Math.PI * 2, true);
+			ctx.fill();
+		}
+
+
+	</script>
+</html>

@@ -1,0 +1,3 @@
+- html标准 http://oreillymedia.github.io/HTMLBook
+- css用于排版书籍 http://atlas.oreilly.co
+- 浏览器兼容性查询 http://caniuse.com

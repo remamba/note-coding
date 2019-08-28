@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas tutorial</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body onload="draw();">
+		<canvas id="tutorial" width="150" height="150"></canvas>
+	</body>
+	<script type="text/javascript">
+		function draw(){
+			var canvas = document.getElementById('tutorial');
+			if (canvas.getContext){
+				var ctx = canvas.getContext('2d');
+
+				//贝塞尔曲线
+				ctx.beginPath()
+				ctx.moveTo(0, 0)
+				ctx.quadraticCurveTo(100, 30, 40, 59)
+				ctx.moveTo(0, 0)
+				ctx.lineTo(100, 30)
+				ctx.lineTo(40, 59)
+				ctx.stroke()
+			}
+		}
+	</script>
+</html>

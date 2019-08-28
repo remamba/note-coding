@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas">
+
+</canvas>
+<div id="color">
+
+</div>
+<button id="myBtn">Get imageData</button>
+</body>
+<script>
+    let img = new Image();
+    img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+    let canvas = document.querySelector("#canvas");
+    let ctx = canvas.getContext('2d');
+    img.onload = () => {
+        ctx.drawImage(img, 0, 0);
+        img.style.display = 'block';
+    };
+
+    let color = document.getElementById("color");
+
+    function pick(event){
+        let { layerX: x , layerY: y} = event;
+        let pixel = ctx.getImageData(x, y, 1, 1);
+        let data = pixel.data;
+        let rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
+        color.style.background = rgba;
+        color.textContent = rgba;
+    }
+
+    canvas.addEventListener("mousemove", pick);
+
+    document.querySelector("#myBtn").addEventListener("click", ()=> {
+        console.log(ctx.getImageData(100, 100, 3, 4))
+    })
+</script>
+</html>

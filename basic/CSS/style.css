@@ -1,0 +1,49 @@
+div {
+	width: 100px;
+	height: 100px;
+	background: black;
+	-webkit-animation: 4s rainbow steps(10);
+	animation: 4s rainbow steps(10);
+	animation-play-state: paused;
+}
+
+div:hover {
+	/* animation: 4s rainbow steps(10); */
+	animation-play-state: running;
+}
+
+@-webkit-keyframes rainbow {
+	from, to {
+		transform: none;
+	}
+
+	50% {
+		transform: scale(2)
+	}
+}
+
+@keyframes rainbow {
+	from, to {
+		transform: none;
+	}
+
+	50% {
+		transform: scale(2)
+	}
+}
+/*
+.number-box {
+	height: 100px;
+	width: 100px;
+	background: slategray;
+	line-height: 100px;
+	font-size: 30px;
+	color: white;
+	text-align: center;
+	border-radius: 0%;
+	transition: 1s border-radius;
+}
+
+.number-box:hover {
+	border-radius: 50%;
+} */

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./ripple.css" />
+	</head>
+	<body>
+		<button id="ripple" class="btn">模拟水波纹</button>
+	</body>
+	<script>
+		const btn = document.querySelector('#ripple')
+		btn.addEventListener('click', (e) => {
+			let el = document.createElement('span')
+			let bounds = btn.getBoundingClientRect()
+			el.setAttribute('style', `top: ${e.pageY - bounds.top - bounds.width / 2}px;left: ${e.pageX - bounds.left - bounds.width / 2}px; width: ${bounds.width + 10}px; height: ${bounds.width + 10}px`)
+			el.className = 'ripple'
+			btn.appendChild(el)
+
+			//定时销毁动画
+			setTimeout(() => {
+				btn.removeChild(el)
+			}, 1000)
+
+		})
+	</script>
+</html>

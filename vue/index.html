@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<title>arthur - 机器学习平台</title>
+</head>
+<body>
+<div id="app">
+	<!--指令-->
+	<span v-bind:title="message" v-if="seen">
+		{{ message }}
+	</span>
+	<!--v-for-->
+	<ul>
+		<li v-for="todo in todos">
+			{{ todo.text }}
+		</li>
+	</ul>
+	<!--数据双向绑定-->
+	<div>
+		<input v-model="message" />
+	</div>
+	<!--往子组件数据传输-->
+	<ol>
+		<list-item v-for="item in items" v-bind:todo="item" v-bind:key="item.id"></list-item>
+	</ol>
+</div>
+<div id="app2">
+<!--	<p>{{ foo }}</p>-->
+<!--	<button v-on:click="foo = foo + 'baz'">Change it</button>-->
+	<!--模板-->
+	<p v-html="rawHtml"></p>
+	<button v-bind:disable="shouldDis"></button>
+	<a v-bind:[attributename]="url">{{ shouldDis }}</a>
+</div>
+<!--侦听数据-->
+<div id="app3">
+	<input v-model="firstName" />
+	<input v-model="lastName" />
+	<p>{{ fullName }}</p>
+</div>
+<!--条件渲染-->
+<div id="app4">
+	<template v-if="show">
+		<h1>Title</h1>
+		<p>Paragraph 1</p>
+		<p>Paragraph 2</p>
+	</template>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
