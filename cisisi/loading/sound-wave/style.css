@@ -1,0 +1,65 @@
+body {
+	background: #1abc9c;
+	margin: 0 0;
+	width: 100%;
+	height: 100%;
+}
+
+.loading {
+	position: absolute;
+	top: calc(50% - 50px);
+	left: calc(50% - 50px);
+	width: 60px;
+}
+
+.loading > .rect {
+	background: #FFFFFF;
+	width: 7px;
+	height: 25px;
+	display: inline-block;
+}
+
+.rect1 {
+	animation: wave 1.4s infinite;
+	-webkit-animation: wave 1.4s infinite;
+}
+
+.rect2 {
+	animation: wave 1.4s 0.1s infinite;
+	-webkit-animation: wave 1.4s 0.1s infinite;
+}
+
+.rect3 {
+	animation: wave 1.4s 0.2s infinite;
+	-webkit-animation: wave 1.4s 0.2s infinite;
+}
+
+.rect4 {
+	animation: wave 1.4s 0.3s infinite;
+	-webkit-animation: wave 1.4s 0.3s infinite;
+}
+
+.rect5 {
+	animation: wave 1.4s 0.4s infinite;
+	-webkit-animation: wave 1.4s 0.4s infinite;
+}
+
+@keyframes wave{
+	0%, 75%, to{
+		transform: none;
+	}
+
+	87.5% {
+		transform: scaleY(2);
+	}
+}
+
+@-webkit-keyframes wave {
+	0%, 75%, to{
+		transform: none;
+	}
+
+	87.5% {
+		transform: scaleY(2);
+	}
+}

@@ -1,0 +1,28 @@
+body {
+	background: #d35400;
+	margin: 0 0;
+	height: 100%;
+	width: 100%;
+}
+
+.loading {
+	position: absolute;
+	top: calc(50% - 25px);
+	left: calc(50% - 25px);
+	background: white;
+	width: 50px;
+	height: 50px;
+	/* animation: flipRect 2.5s infinite; */
+}
+
+.loading:hover {
+	animation: flipRect 2.5s infinite;
+}
+
+@keyframes flipRect {
+	from { transform: none; }
+	25% { transform: perspective(50px); }
+	50% {  transform: rotateY(0.5turn); }
+	75% { transform: rotateY(0.5turn) perspective(50px); }
+	to { transform: rotateY(0.5turn) rotateX(0.5turn); }
+}

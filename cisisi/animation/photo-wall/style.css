@@ -1,0 +1,54 @@
+.container {
+	width: 50%;
+	margin: 10% 25%;
+	border: 1px solid hsla(360, 100%, 100%, 0.5);
+}
+
+.container > img {
+	width: 50px;
+	height: 50px;
+	display: inline-table;
+	margin: 0 0;
+	opacity: 0;
+}
+
+.pic1 {
+	animation: enter 4s forwards;
+}
+
+.pic2 {
+	animation: enter 1.5s 0.1s forwards;
+}
+
+.pic3 {
+	animation: enter 1.5s 0.5s forwards;
+}
+
+.pic4 {
+	animation: enter 1.5s 0.5s forwards;
+}
+
+.pic5 {
+	animation: enter 1.5s 0.3s forwards;
+}
+
+.pic6 {
+	animation: enter 1.5s 0.2s forwards;
+}
+
+.pic7 {
+	animation: enter 1.5s 0.2s forwards;
+}
+
+@keyframes enter {
+	0% {
+		transform: translate(-400px);
+		opacity: 1;
+	}
+
+	50% {
+		transform: translate(0) scale(0.1);
+		opacity: 0;
+	}
+
+}

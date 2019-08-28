@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.container {
+				position: relative;
+				width: 100px;
+				height: 100px;
+				border: 1px solid #000;
+				background: linear-gradient(to top right, #fff calc(50% - 1px), #000 50%, #fff calc(50% + 1px))
+			}
+
+			.container > .column {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+			}
+
+			.container > .row {
+				position: absolute;
+				bottom: 10px;
+				left: 10px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<span class="column">name1</span>
+			<span class="row">name2</span>
+		</div>
+	</body>
+</html>

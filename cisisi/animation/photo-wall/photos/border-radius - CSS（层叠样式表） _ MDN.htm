@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius -->
+<html lang="zh" dir="ltr" class=""><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <script async="" src="./border-radius - CSS（层叠样式表） _ MDN_files/analytics.js"></script><script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+  <title>border-radius - CSS（层叠样式表） | MDN</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+
+  
+<link rel="preload" href="https://developer.mozilla.org/static/fonts/locales/ZillaSlab-Bold.subset.e96c15f68c68.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="home" href="https://developer.mozilla.org/zh-CN/">
+    <link rel="license" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#license">
+  
+
+  
+    
+    
+
+    <link href="./border-radius - CSS（层叠样式表） _ MDN_files/mdn.5ae744d64b74.css" rel="stylesheet" type="text/css">
+
+    
+  
+    <link href="./border-radius - CSS（层叠样式表） _ MDN_files/wiki.7213333ab372.css" rel="stylesheet" type="text/css">
+
+
+    
+      <link href="./border-radius - CSS（层叠样式表） _ MDN_files/banners.43f6e8e4034d.css" rel="stylesheet" type="text/css">
+    
+
+  <link href="./border-radius - CSS（层叠样式表） _ MDN_files/locale-zh-CN.bd1628bd7474.css" rel="stylesheet" type="text/css">
+
+  
+    <script>
+    // Mozilla DNT Helper
+    /* This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/. */ if(typeof Mozilla==='undefined'){var Mozilla={}}Mozilla.dntEnabled=function(dnt,ua){'use strict';var dntStatus=dnt||navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack;var userAgent=ua||navigator.userAgent;var anomalousWinVersions=['Windows NT 6.1','Windows NT 6.2','Windows NT 6.3'];var fxMatch=userAgent.match(/Firefox\/(\d+)/);var ieRegEx=/MSIE|Trident/i;var isIE=ieRegEx.test(userAgent);var platform=userAgent.match(/Windows.+?(?=;)/g);if(isIE&&typeof Array.prototype.indexOf!=='function'){return false}else if(fxMatch&&parseInt(fxMatch[1],10)<32){dntStatus='Unspecified'}else if(isIE&&platform&&anomalousWinVersions.indexOf(platform.toString())!==-1){dntStatus='Unspecified'}else{dntStatus={'0':'Disabled','1':'Enabled'}[dntStatus]||'Unspecified'}return dntStatus==='Enabled'?true:false};
+    // only load GA if DNT is not enabled
+    if (Mozilla && !Mozilla.dntEnabled()) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-36116321-5', 'mozilla.org');
+        ga('set', 'anonymizeIp', true);
+
+        
+
+        // dimension9 == "Section editing"
+        
+            // dimension12 == 'Page Revision'
+            ga('set', 'dimension12', '1512881');
+            // dimension17 == 'English Slug'
+            ga('set', 'dimension17', 'Web/CSS/border-radius');
+
+        (function() {
+            // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+            var win = window;
+            var removeUtms = function(){
+                var location = win.location;
+                if (location.href.indexOf('utm') != -1 && win.history.replaceState) {
+                    win.history.replaceState({}, '', location.pathname);
+                }
+            };
+
+            ga('send', 'pageview', {'hitCallback': removeUtms});
+        })();
+    }
+</script>
+  
+
+  
+    <script>
+LUX=(function(){var a=("undefined"!==typeof(LUX)&&"undefined"!==typeof(LUX.gaMarks)?LUX.gaMarks:[]);var d=("undefined"!==typeof(LUX)&&"undefined"!==typeof(LUX.gaMeasures)?LUX.gaMeasures:[]);var j="LUX_start";var k=window.performance;var l=("undefined"!==typeof(LUX)&&LUX.ns?LUX.ns:(Date.now?Date.now():+(new Date())));if(k&&k.timing&&k.timing.navigationStart){l=k.timing.navigationStart}function f(){if(k&&k.now){return k.now()}var o=Date.now?Date.now():+(new Date());return o-l}function b(n){if(k){if(k.mark){return k.mark(n)}else{if(k.webkitMark){return k.webkitMark(n)}}}a.push({name:n,entryType:"mark",startTime:f(),duration:0});return}function m(p,t,n){if("undefined"===typeof(t)&&h(j)){t=j}if(k){if(k.measure){if(t){if(n){return k.measure(p,t,n)}else{return k.measure(p,t)}}else{return k.measure(p)}}else{if(k.webkitMeasure){return k.webkitMeasure(p,t,n)}}}var r=0,o=f();if(t){var s=h(t);if(s){r=s.startTime}else{if(k&&k.timing&&k.timing[t]){r=k.timing[t]-k.timing.navigationStart}else{return}}}if(n){var q=h(n);if(q){o=q.startTime}else{if(k&&k.timing&&k.timing[n]){o=k.timing[n]-k.timing.navigationStart}else{return}}}d.push({name:p,entryType:"measure",startTime:r,duration:(o-r)});return}function h(n){return c(n,g())}function c(p,o){for(i=o.length-1;i>=0;i--){var n=o[i];if(p===n.name){return n}}return undefined}function g(){if(k){if(k.getEntriesByType){return k.getEntriesByType("mark")}else{if(k.webkitGetEntriesByType){return k.webkitGetEntriesByType("mark")}}}return a}return{mark:b,measure:m,gaMarks:a,gaMeasures:d}})();LUX.ns=(Date.now?Date.now():+(new Date()));LUX.ac=[];LUX.cmd=function(a){LUX.ac.push(a)};LUX.init=function(){LUX.cmd(["init"])};LUX.send=function(){LUX.cmd(["send"])};LUX.addData=function(a,b){LUX.cmd(["addData",a,b])};LUX_ae=[];window.addEventListener("error",function(a){LUX_ae.push(a)});LUX_al=[];if("function"===typeof(PerformanceObserver)){var LongTaskObserver=new PerformanceObserver(function(c){var b=c.getEntries();for(var a=0;a<b.length;a++){var d=b[a];LUX_al.push(d)}});try{LongTaskObserver.observe({entryTypes:["longtask"],buffered:true})}catch(e){}};
+</script>
+<script src="./border-radius - CSS（层叠样式表） _ MDN_files/lux.js" async="" defer="" crossorigin="anonymous"></script>
+  
+
+  
+    <script async="" type="text/javascript" src="./border-radius - CSS（层叠样式表） _ MDN_files/perf.654b849a6fd9.js" charset="utf-8"></script>
+
+    <!-- common social tags -->
+    
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://developer.mozilla.org/static/img/opengraph-logo.72382e605ce3.png">
+    <meta property="og:site_name" content="MDN Web 文档">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://developer.mozilla.org/static/img/opengraph-logo.72382e605ce3.png">
+    <meta name="twitter:site" content="@MozDevNet">
+    <meta name="twitter:creator" content="@MozDevNet">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://developer.mozilla.org/zh-CN/search/xml" title="MDN Web 文档">
+    
+  
+  <!-- third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://developer.mozilla.org/static/img/favicon144.e7e21ca263ca.png">
+  <!-- iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://developer.mozilla.org/static/img/favicon114.d526f38b09c5.png">
+  <!-- first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://developer.mozilla.org/static/img/favicon72.cc65d1d762a0.png">
+  <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="https://developer.mozilla.org/static/img/favicon57.de33179910ae.png">
+  <!-- basic favicon -->
+  <link rel="shortcut icon" href="https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png">
+  <!--[if IE]>
+  <meta http-equiv="imagetoolbar" content="no">
+  <script type="text/javascript" src="https://developer.mozilla.org/static/build/js/html5shiv.ae1ac46eaf58.js" charset="utf-8"></script>
+  <![endif]-->
+
+  
+  <link rel="dns-prefetch" href="https://interactive-examples.mdn.mozilla.net/" pr="0.75">
+  <link rel="preconnect" href="https://interactive-examples.mdn.mozilla.net/" pr="0.75">
+
+  <link rel="alternate" type="application/json" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius$json">
+  <link rel="canonical" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius">
+
+  
+  <link rel="alternate" hreflang="zh" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius" title="border-radius">
+  
+    
+      <link rel="alternate" hreflang="en" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius" title="border-radius">
+    
+      <link rel="alternate" hreflang="de" href="https://developer.mozilla.org/de/docs/Web/CSS/border-radius" title="border-radius">
+    
+      <link rel="alternate" hreflang="es" href="https://developer.mozilla.org/es/docs/Web/CSS/border-radius" title="border-radius">
+    
+      <link rel="alternate" hreflang="fr" href="https://developer.mozilla.org/fr/docs/Web/CSS/border-radius" title="border-radius">
+    
+      <link rel="alternate" hreflang="ja" href="https://developer.mozilla.org/ja/docs/Web/CSS/border-radius" title="border-radius">
+    
+      <link rel="alternate" hreflang="ko" href="https://developer.mozilla.org/ko/docs/Web/CSS/border-radius" title="border-radius">
+    
+      <link rel="alternate" hreflang="pl" href="https://developer.mozilla.org/pl/docs/Web/CSS/border-radius" title="border-radius">
+    
+      <link rel="alternate" hreflang="pt" href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/border-radius" title="border-radius">
+    
+      <link rel="alternate" hreflang="ru" href="https://developer.mozilla.org/ru/docs/Web/CSS/border-radius" title="border-radius">
+    
+  
+
+  <!-- document-specific social tags -->
+  <meta property="og:title" content="border-radius">
+  <meta property="og:url" content="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius">
+  <meta name="twitter:url" content="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius">
+  <meta name="twitter:title" content="border-radius">
+  
+  <meta property="og:description" content="CSS 属性 border-radius 允许你设置元素的外边框圆角。当使用一个半径时确定一个圆形，当使用两个半径时确定一个椭圆。这个(椭)圆与边框的交集形成圆角效果。">
+  <meta name="description" content="CSS 属性 border-radius 允许你设置元素的外边框圆角。当使用一个半径时确定一个圆形，当使用两个半径时确定一个椭圆。这个(椭)圆与边框的交集形成圆角效果。">
+  <meta name="twitter:description" content="CSS 属性 border-radius 允许你设置元素的外边框圆角。当使用一个半径时确定一个圆形，当使用两个半径时确定一个椭圆。这个(椭)圆与边框的交集形成圆角效果。">
+  
+
+<link href="./border-radius - CSS（层叠样式表） _ MDN_files/wiki-compat-tables.1d3c442ac0f3.css" type="text/css" rel="stylesheet"><script async="" data-manual="true" src="./border-radius - CSS（层叠样式表） _ MDN_files/syntax-prism.f016806edde4.js"></script></head>
+<body data-slug="Web/CSS/border-radius" contextmenu="edit-history-menu" data-search-url="" class="document">
+
+  <script>
+    // make sure global mdn object exists
+    var mdn = window.mdn || {};
+
+    (function(win) {
+        'use strict';
+            (function(){
+  var FLAGS = {
+    'kumaediting': false,'page_move': false,'section_edit': false,'spam_checks_enabled': true,'spam_submissions_enabled': false,'spam_admin_override': false,'spam_spammer_override': false,'spam_testing_mode': false,'sg_task_completion': false,'contrib_beta': false,'recurring_payment_beta': false,'developer_needs': true,'bc-signals': false
+    },
+    SWITCHES = {
+    'welcome_email': true,'application_ACAO': true,'store_revision_ips': true,'foundation_callout': false,'helpful-survey-2': true,'wiki_spam_training': true,'registration_disabled': false
+    },
+    SAMPLES = {
+    
+    };
+  window.waffle = {
+    "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+    },
+    "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+    },
+    "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+    },
+    "FLAGS": FLAGS,
+    "SWITCHES": SWITCHES,
+    "SAMPLES": SAMPLES
+  };
+})();
+
+
+            // This needs to be set before ckeditor.js loads
+            window.CKEDITOR_BASEPATH = 'https://developer.mozilla.org/static/js/libs/ckeditor4/build/ckeditor/';
+
+            // Site configuration
+            win.mdn.ckeditor = {};
+
+        win.mdn.features = {};
+        win.mdn.siteUrl = 'https://developer.mozilla.org';
+        win.mdn.wikiSiteUrl = 'https://wiki.developer.mozilla.org';
+        win.mdn.staticPath = 'https://developer.mozilla.org/static/';
+        win.mdn.wiki = {
+            autosuggestTitleUrl: '/zh-CN/docs/get-documents'
+        };
+        win.mdn.assets = {
+            css: {
+                'editor-content': ['https://developer.mozilla.org/static/build/styles/editor-content.6b7d809d4915.css','https://developer.mozilla.org/static/build/styles/editor-locale-zh-CN.bd1628bd7474.css',
+                ],
+
+                'wiki-compat-tables': ['https://developer.mozilla.org/static/build/styles/wiki-compat-tables.1d3c442ac0f3.css',]
+            },
+            js: {
+                'syntax-prism': ['https://developer.mozilla.org/static/build/js/syntax-prism.f016806edde4.js',],
+                'wiki-compat-tables': ['https://developer.mozilla.org/static/build/js/wiki-compat-tables.3a4ab2cc8ca1.js',],
+                'wiki-compat-signal': ['https://developer.mozilla.org/static/build/js/wiki-compat-signal.f03a10d93ede.js',]
+            }
+        };
+
+        win.mdn.notifications = [];
+
+        
+
+        // interactive editor config
+        win.mdn.interactiveEditor = {
+            siteUrl: "https://developer.mozilla.org",
+            editorUrl: "https://interactive-examples.mdn.mozilla.net"
+        };
+        win.mdn.langCookieName = "django_language";
+
+    })(this);
+</script>
+    
+    <ul id="nav-access">
+  <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#content" id="skip-main">跳转至主要内容</a></li>
+  <li><a id="skip-language" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#language">选择语言</a></li>
+  <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#q" id="skip-search">跳到搜索</a></li>
+</ul>
+
+    
+    
+    
+
+
+    <!-- Header -->
+    <header id="main-header" class="header-main">
+      <a href="https://developer.mozilla.org/zh-CN/" class="logo">MDN Web 文档</a>
+      <div class="nav-toolbox-wrapper">
+        <nav id="main-nav" class="nav-main" role="navigation">
+    <ul>
+        <li class="nav-main-item">
+            <a href="https://developer.mozilla.org/zh-CN/docs/Web">技术
+                <svg class="icon icon-caret-down" xmlns="http://www.w3.org/2000/svg" width="16" height="28" viewBox="0 0 16 28"><path d="M16 11a.99.99 0 0 1-.297.703l-7 7C8.516 18.89 8.265 19 8 19s-.516-.109-.703-.297l-7-7A.996.996 0 0 1 0 11c0-.547.453-1 1-1h14c.547 0 1 .453 1 1z"></path></svg>
+            </a>
+            <div class="submenu js-submenu" id="nav-tech-submenu">
+                <div class="submenu-column">
+                  <ul>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">HTML</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS">CSS</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">JavaScript</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Graphics">图像</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP">HTTP</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API">API / DOM</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions">浏览器扩展</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/MathML">MathML</a></li>
+                  </ul>
+                </div>
+            </div>
+        </li>
+        <li class="nav-main-item">
+            <a href="https://developer.mozilla.org/zh-CN/docs/Learn">参考与指南
+                <svg class="icon icon-caret-down" xmlns="http://www.w3.org/2000/svg" width="16" height="28" viewBox="0 0 16 28"><path d="M16 11a.99.99 0 0 1-.297.703l-7 7C8.516 18.89 8.265 19 8 19s-.516-.109-.703-.297l-7-7A.996.996 0 0 1 0 11c0-.547.453-1 1-1h14c.547 0 1 .453 1 1z"></path></svg>
+            </a>
+            <div class="submenu js-submenu" id="nav-learn-submenu">
+                <div class="submenu-column">
+                  <ul>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Learn">学习 Web 开发</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Tutorials">教程</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Reference">参考文献</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide">开发者指南</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Accessibility">无障碍环境</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Games">游戏开发</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web">...更多文档</a></li>
+                  </ul>
+                </div>
+            </div>
+        </li>
+        <li class="nav-main-item">
+            <a href="https://developer.mozilla.org/zh-CN/docs/MDN/Feedback">反馈
+                <svg class="icon icon-caret-down" xmlns="http://www.w3.org/2000/svg" width="16" height="28" viewBox="0 0 16 28"><path d="M16 11a.99.99 0 0 1-.297.703l-7 7C8.516 18.89 8.265 19 8 19s-.516-.109-.703-.297l-7-7A.996.996 0 0 1 0 11c0-.547.453-1 1-1h14c.547 0 1 .453 1 1z"></path></svg>
+            </a>
+            <div class="submenu js-submenu" id="nav-contact-submenu">
+              <div class="submenu-column">
+                <ul>
+                  <li>
+                      <a href="https://support.mozilla.org/">获取 Firefox 帮助
+                          <svg class="icon icon-external-link" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M22 14.5v5c0 2.484-2.016 4.5-4.5 4.5h-13A4.502 4.502 0 0 1 0 19.5v-13C0 4.016 2.016 2 4.5 2h11c.281 0 .5.219.5.5v1c0 .281-.219.5-.5.5h-11A2.507 2.507 0 0 0 2 6.5v13C2 20.875 3.125 22 4.5 22h13c1.375 0 2.5-1.125 2.5-2.5v-5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zM28 1v8c0 .547-.453 1-1 1a.99.99 0 0 1-.703-.297l-2.75-2.75L13.36 17.14c-.094.094-.234.156-.359.156s-.266-.063-.359-.156l-1.781-1.781c-.094-.094-.156-.234-.156-.359s.063-.266.156-.359L21.048 4.454l-2.75-2.75a.996.996 0 0 1-.297-.703c0-.547.453-1 1-1h8c.547 0 1 .453 1 1z"></path></svg>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://stackoverflow.com/">获取 Web 开发帮助
+                          <svg class="icon icon-external-link" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M22 14.5v5c0 2.484-2.016 4.5-4.5 4.5h-13A4.502 4.502 0 0 1 0 19.5v-13C0 4.016 2.016 2 4.5 2h11c.281 0 .5.219.5.5v1c0 .281-.219.5-.5.5h-11A2.507 2.507 0 0 0 2 6.5v13C2 20.875 3.125 22 4.5 22h13c1.375 0 2.5-1.125 2.5-2.5v-5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zM28 1v8c0 .547-.453 1-1 1a.99.99 0 0 1-.703-.297l-2.75-2.75L13.36 17.14c-.094.094-.234.156-.359.156s-.266-.063-.359-.156l-1.781-1.781c-.094-.094-.156-.234-.156-.359s.063-.266.156-.359L21.048 4.454l-2.75-2.75a.996.996 0 0 1-.297-.703c0-.547.453-1 1-1h8c.547 0 1 .453 1 1z"></path></svg>
+                      </a>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                      <a href="https://developer.mozilla.org/zh-CN/docs/MDN/Community">加入 MDN 社区</a>
+                  </li>
+                  <li>
+                      <a target="_blank" rel="noopener" href="https://github.com/mdn/sprints/issues/new?template=issue-template.md&amp;projects=mdn/sprints/2&amp;labels=user-report&amp;title=https%3A//developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius">报告内容问题
+                          <svg class="icon icon-external-link" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M22 14.5v5c0 2.484-2.016 4.5-4.5 4.5h-13A4.502 4.502 0 0 1 0 19.5v-13C0 4.016 2.016 2 4.5 2h11c.281 0 .5.219.5.5v1c0 .281-.219.5-.5.5h-11A2.507 2.507 0 0 0 2 6.5v13C2 20.875 3.125 22 4.5 22h13c1.375 0 2.5-1.125 2.5-2.5v-5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zM28 1v8c0 .547-.453 1-1 1a.99.99 0 0 1-.703-.297l-2.75-2.75L13.36 17.14c-.094.094-.234.156-.359.156s-.266-.063-.359-.156l-1.781-1.781c-.094-.094-.156-.234-.156-.359s.063-.266.156-.359L21.048 4.454l-2.75-2.75a.996.996 0 0 1-.297-.703c0-.547.453-1 1-1h8c.547 0 1 .453 1 1z"></path></svg>
+                      </a>
+                  </li>
+                  <li>
+                      <a target="_blank" rel="noopener" href="https://bugzilla.mozilla.org/form.mdn">报告缺陷
+                          <svg class="icon icon-external-link" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M22 14.5v5c0 2.484-2.016 4.5-4.5 4.5h-13A4.502 4.502 0 0 1 0 19.5v-13C0 4.016 2.016 2 4.5 2h11c.281 0 .5.219.5.5v1c0 .281-.219.5-.5.5h-11A2.507 2.507 0 0 0 2 6.5v13C2 20.875 3.125 22 4.5 22h13c1.375 0 2.5-1.125 2.5-2.5v-5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zM28 1v8c0 .547-.453 1-1 1a.99.99 0 0 1-.703-.297l-2.75-2.75L13.36 17.14c-.094.094-.234.156-.359.156s-.266-.063-.359-.156l-1.781-1.781c-.094-.094-.156-.234-.156-.359s.063-.266.156-.359L21.048 4.454l-2.75-2.75a.996.996 0 0 1-.297-.703c0-.547.453-1 1-1h8c.547 0 1 .453 1 1z"></path></svg>
+                      </a>
+                  </li>
+                </ul>
+              </div>
+          </div>
+      </li>
+  </ul>
+</nav>
+        <div id="toolbox" class="toolbox">
+  <ul>
+    
+    <li class="nav-login"><div class="login">
+    
+        
+        <a href="https://developer.mozilla.org/users/github/login/?next=%2Fzh-CN%2Fdocs%2FWeb%2FCSS%2Fborder-radius" class="login-link js-login-link" data-service="GitHub" rel="nofollow">
+            登录<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-label="GitHub" role="img" focusable="false">
+    <title>Github</title>
+    <path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+</svg>
+        </a>
+    
+</div></li>
+  </ul>
+</div>
+      </div>
+      <form id="nav-main-search" action="https://developer.mozilla.org/zh-CN/search" method="get" role="search" class="nav-main-search">
+  <div class="search-wrap">
+    <label for="main-q" class="offscreen">搜索</label>
+    <input type="search" id="main-q" name="q" placeholder="搜索" data-value="" value="" aria-hidden="true">
+    <span class="search-trigger">
+        <svg class="icon icon-search" xmlns="http://www.w3.org/2000/svg" width="26" height="28" viewBox="0 0 26 28" aria-hidden="true">
+    <path d="M18 13c0-3.859-3.141-7-7-7s-7 3.141-7 7 3.141 7 7 7 7-3.141 7-7zm8 13c0 1.094-.906 2-2 2a1.96 1.96 0 0 1-1.406-.594l-5.359-5.344a10.971 10.971 0 0 1-6.234 1.937c-6.078 0-11-4.922-11-11s4.922-11 11-11 11 4.922 11 11c0 2.219-.672 4.406-1.937 6.234l5.359 5.359c.359.359.578.875.578 1.406z"></path>
+</svg>
+    </span>
+    <button type="submit" class="offscreen">搜索</button>
+    <button type="button" id="close-header-search" class="close-header-search transparent">
+        <span class="offscreen">关闭搜索</span>
+        <svg class="icon icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28" aria-hidden="true" role="img"><title></title><path d="M20.281 20.656c0 .391-.156.781-.438 1.062l-2.125 2.125c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438L11 19.249l-4.594 4.594c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438l-2.125-2.125c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062L6.751 15l-4.594-4.594c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062l2.125-2.125c.281-.281.672-.438 1.062-.438s.781.156 1.062.438L11 10.751l4.594-4.594c.281-.281.672-.438 1.062-.438s.781.156 1.062.438l2.125 2.125c.281.281.438.672.438 1.062s-.156.781-.438 1.062L15.249 15l4.594 4.594c.281.281.438.672.438 1.062z"></path></svg>
+    </button>
+  </div>
+</form>
+    </header>  
+
+  <!-- Content will go here -->
+  <main id="content" role="main">
+      
+  <!-- heading -->
+  <div id="wiki-document-head" class="document-head">
+    <div class="center">
+      <div class="document-title">
+        <h1>border-radius</h1>
+      </div>
+
+      <!-- action buttons -->
+      <div class="document-actions">
+        
+
+  
+    
+    
+  
+
+  
+    
+    
+        
+    
+  
+
+  
+
+  <ul class="page-buttons">
+      <li>
+          <button id="languages-menu" class="transparent" aria-haspopup="true" aria-owns="languages-menu-submenu" aria-expanded="false">
+              <svg class="icon icon-language" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true">
+    <path d="M10.219 16.844c-.031.109-.797-.25-1-.328-.203-.094-1.125-.609-1.359-.766s-1.125-.891-1.234-.938a28.275 28.275 0 0 1-2.094 2.828c-.281.328-1.125 1.391-1.641 1.719-.078.047-.531.094-.594.063.25-.187.969-1.078 1.281-1.437.391-.453 2.25-3.047 2.562-3.641.328-.594 1.312-2.562 1.359-2.75-.156-.016-1.391.406-1.719.516-.313.094-1.172.297-1.234.344-.063.063-.016.25-.047.313s-.313.203-.484.234a1.647 1.647 0 0 1-.734 0c-.203-.047-.391-.25-.438-.328 0 0-.063-.094-.078-.359.187-.063.5-.078.844-.172s1.188-.344 1.641-.5 1.328-.484 1.594-.547c.281-.047.984-.516 1.359-.641s.641-.281.656-.203 0 .422-.016.516c-.016.078-.766 1.547-.875 1.781-.063.125-.5.953-1.203 2.047.25.109.781.328 1 .438.266.125 2.125.906 2.219.938s.266.75.234.875zM7.016 9.25c.047.266-.031.375-.063.438-.156.297-.547.5-.781.594s-.625.187-.938.187c-.141-.016-.422-.063-.766-.406-.187-.203-.328-.75-.266-.688s.516.125.719.078.688-.187.906-.25c.234-.078.703-.203.859-.219.156 0 .281.063.328.266zm10.906 2.016l.984 3.547-2.172-.656zM.609 23.766l10.844-3.625V4.016L.609 7.657v16.109zM20 18.813l1.594.484-2.828-10.266-1.563-.484-3.375 8.375 1.594.484.703-1.719 3.297 1.016zM12.141 3.781l8.953 2.875V.718zM17 24.453l2.469.203-.844 2.5L18 26.125c-1.266.812-2.828 1.437-4.312 1.687-.453.094-.969.187-1.422.187h-1.313c-1.656 0-4.672-.984-5.984-1.937-.094-.078-.125-.141-.125-.25 0-.172.125-.297.281-.297.141 0 .875.453 1.078.547 1.406.703 3.375 1.344 4.953 1.344 1.953 0 3.281-.25 5.063-1.016.516-.234.969-.531 1.453-.797zm7-16.859v16.859c-12.078-3.844-12.094-3.844-12.094-3.844C11.656 20.718.453 24.5.297 24.5a.3.3 0 0 1-.281-.203c0-.016-.016-.031-.016-.047V7.406c.016-.047.031-.125.063-.156.094-.109.219-.141.313-.172.047-.016 1-.328 2.328-.781v-6l8.719 3.094C11.532 3.36 21.251 0 21.392 0c.172 0 .313.125.313.328v6.531z"></path>
+</svg>
+              <span>语言</span>
+          </button>
+
+        <div class="submenu js-submenu" id="languages-menu-submenu">
+          <div class="submenu-column">
+            <ul id="translations">
+              
+                
+                
+                
+                  <li lang="en-US"><bdi><a rel="internal" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius" data-locale="en-US" title="英语 (美国)">English (US) (en-US)</a></bdi></li>
+                
+                  <li lang="de"><bdi><a rel="internal" href="https://developer.mozilla.org/de/docs/Web/CSS/border-radius" data-locale="de" title="德语">Deutsch (de)</a></bdi></li>
+                
+                  <li lang="es"><bdi><a rel="internal" href="https://developer.mozilla.org/es/docs/Web/CSS/border-radius" data-locale="es" title="西班牙语">Español (es)</a></bdi></li>
+                
+                  <li lang="fr"><bdi><a rel="internal" href="https://developer.mozilla.org/fr/docs/Web/CSS/border-radius" data-locale="fr" title="法语">Français (fr)</a></bdi></li>
+                
+                  <li lang="ja"><bdi><a rel="internal" href="https://developer.mozilla.org/ja/docs/Web/CSS/border-radius" data-locale="ja" title="日语">日本語 (ja)</a></bdi></li>
+                
+                  <li lang="ko"><bdi><a rel="internal" href="https://developer.mozilla.org/ko/docs/Web/CSS/border-radius" data-locale="ko" title="朝鲜语">한국어 (ko)</a></bdi></li>
+                
+                  <li lang="pl"><bdi><a rel="internal" href="https://developer.mozilla.org/pl/docs/Web/CSS/border-radius" data-locale="pl" title="波兰语">Polski (pl)</a></bdi></li>
+                
+                  <li lang="pt-BR"><bdi><a rel="internal" href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/border-radius" data-locale="pt-BR" title="葡萄牙语 (巴西)">Português (do&nbsp;Brasil) (pt-BR)</a></bdi></li>
+                
+                  <li lang="ru"><bdi><a rel="internal" href="https://developer.mozilla.org/ru/docs/Web/CSS/border-radius" data-locale="ru" title="俄语">Русский (ru)</a></bdi></li>
+                
+              
+
+              
+            </ul>
+          </div>
+        </div>
+      </li>
+      
+      <li class="page-buttons-edit">
+          <a href="https://developer.mozilla.org/zh-CN/users/signin?next=/zh-CN/docs/Web/CSS/border-radius%24edit" class="button neutral" id="edit-button" rel="nofollow">
+              <svg class="icon icon-pencil" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true">
+    <path d="M5.672 24l1.422-1.422-3.672-3.672L2 20.328V22h2v2h1.672zm8.172-14.5a.329.329 0 0 0-.344-.344.368.368 0 0 0-.266.109l-8.469 8.469a.366.366 0 0 0-.109.266c0 .203.141.344.344.344a.368.368 0 0 0 .266-.109l8.469-8.469a.366.366 0 0 0 .109-.266zM13 6.5l6.5 6.5-13 13H0v-6.5zM23.672 8c0 .531-.219 1.047-.578 1.406L20.5 12 14 5.5l2.594-2.578c.359-.375.875-.594 1.406-.594s1.047.219 1.422.594l3.672 3.656c.359.375.578.891.578 1.422z"></path>
+</svg>
+              编辑
+          </a>
+      </li>
+      
+
+        
+
+        <li class="page-buttons-advanced">
+            <button id="advanced-menu" class="only-icon" aria-haspopup="true" aria-owns="advanced-menu-submenu" aria-expanded="false">
+                <svg class="icon icon-gear" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true">
+    <path d="M16 14c0-2.203-1.797-4-4-4s-4 1.797-4 4 1.797 4 4 4 4-1.797 4-4zm8-1.703v3.469c0 .234-.187.516-.438.562l-2.891.438a8.86 8.86 0 0 1-.609 1.422c.531.766 1.094 1.453 1.672 2.156.094.109.156.25.156.391s-.047.25-.141.359c-.375.5-2.484 2.797-3.016 2.797a.795.795 0 0 1-.406-.141l-2.156-1.687a9.449 9.449 0 0 1-1.422.594c-.109.953-.203 1.969-.453 2.906a.573.573 0 0 1-.562.438h-3.469c-.281 0-.531-.203-.562-.469l-.438-2.875a9.194 9.194 0 0 1-1.406-.578l-2.203 1.672c-.109.094-.25.141-.391.141s-.281-.063-.391-.172c-.828-.75-1.922-1.719-2.578-2.625a.607.607 0 0 1 .016-.718c.531-.719 1.109-1.406 1.641-2.141a8.324 8.324 0 0 1-.641-1.547l-2.859-.422A.57.57 0 0 1 0 15.705v-3.469c0-.234.187-.516.422-.562l2.906-.438c.156-.5.359-.969.609-1.437a37.64 37.64 0 0 0-1.672-2.156c-.094-.109-.156-.234-.156-.375s.063-.25.141-.359c.375-.516 2.484-2.797 3.016-2.797.141 0 .281.063.406.156L7.828 5.94a9.449 9.449 0 0 1 1.422-.594c.109-.953.203-1.969.453-2.906a.573.573 0 0 1 .562-.438h3.469c.281 0 .531.203.562.469l.438 2.875c.484.156.953.344 1.406.578l2.219-1.672c.094-.094.234-.141.375-.141s.281.063.391.156c.828.766 1.922 1.734 2.578 2.656a.534.534 0 0 1 .109.344c0 .141-.047.25-.125.359-.531.719-1.109 1.406-1.641 2.141.266.5.484 1.016.641 1.531l2.859.438a.57.57 0 0 1 .453.562z"></path>
+</svg>
+                <span>高级</span>
+            </button>
+            <div class="submenu js-submenu" id="advanced-menu-submenu">
+                <!-- this page -->
+                <div class="submenu-column">
+                    <div class="title">高级</div>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius$history" rel="nofollow">历史记录</a></li>
+                        
+                        
+                        
+
+
+                
+
+                <li class="page-print"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#" onclick="return window.print();">打印此文章</a></li>
+            </ul>
+          </div>
+        </div>
+  </li></ul>
+      </div>
+    </div>
+  </div>
+  
+  <div id="toc" class="toc">
+    <div class="center">
+      <div class="toc-head">跳转到：</div>
+        <ol class="toc-links">
+          <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E7%A4%BA%E4%BE%8B" rel="internal">示例</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E5%9C%A8%E7%BA%BF%E7%A4%BA%E4%BE%8B" rel="internal">在线示例</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E6%B3%A8%E6%84%8F" rel="internal">注意</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E8%A7%84%E8%8C%83" rel="internal">规范</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7" rel="internal">浏览器兼容性</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E5%8F%A6%E8%AF%B7%E5%8F%82%E9%98%85" rel="internal">另请参阅</a>
+        </li></ol>
+    </div>
+  </div>
+  
+
+      <div class="center clear">
+      
+
+    <div class="wiki-main-content" id="document-main"><div class="center">
+      <!-- start the main content container -->
+        <div id="wiki-column-container" class="wiki-left-present">
+
+          <!-- content row with three strips -->
+          <div class="column-container column-container-reverse">
+
+            <!-- center: main article content -->
+            <div id="wiki-content" class="column-main wiki-column text-content">
+
+              
+
+              
+              
+
+              
+
+              
+                
+              
+              
+
+              <!-- just the article content -->
+              <article id="wikiArticle">
+                
+                  
+                    
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS">CSS</a> 属性 <strong><code>border-radius</code></strong> 允许你设置元素的外边框圆角。当使用一个半径时确定一个圆形，当使用两个半径时确定一个椭圆。这个(椭)圆与边框的交集形成圆角效果。</p>
+
+<p><img alt="Images of CSS3 rounded corners: no rounding, rounding w/ an arc of circle, rounding w/ an arc of ellipse" class="default internal" src="./border-radius - CSS（层叠样式表） _ MDN_files/border-radius-sh.png" style="height: 164px; width: 549px;"></p>
+
+<div><iframe class="interactive" frameborder="0" height="250" src="./border-radius - CSS（层叠样式表） _ MDN_files/border-radius.html" width="100%"></iframe></div>
+
+<p class="hidden">The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the interactive examples project, please clone <a class="external external-icon" href="https://github.com/mdn/interactive-examples" rel="noopener">https://github.com/mdn/interactive-examples</a> and send us a pull request.</p>
+
+<p>该属性是一个 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Shorthand_properties">简写属性</a>，是为了将这四个属性 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-left-radius" title="border-top-left-radius 用来设置元素左上角的圆角效果。这段圆弧（角）可以是圆或椭圆的一部分。如果其中有一个值为0，那么将无圆角效果（见border-top-left-radius取值方式)。"><code>border-top-left-radius</code></a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-right-radius" title="border-top-right-radius属性设置元素的右上角弧形，这个圆弧可能是一个椭圆，或者其中一个值是0的话，就是没有圆弧，换句话就是说拐角是方形的。"><code>border-top-right-radius</code></a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-right-radius" title="The border-bottom-right-radius CSS property sets the rounding of the bottom-right corner of the element."><code>border-bottom-right-radius</code></a>，和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-left-radius" title="总览"><code>border-bottom-left-radius</code></a> 简写为一个属性。</p>
+
+<p>即使元素没有边框，圆角也可以用到 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background" title="background 是一种 CSS 简写属性，用于一次性集中定义各种背景属性，包括 color, image, origin 与 size, repeat 方式等等。"><code>background</code></a> 上面，具体效果受 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-clip" title="background-clip  设置元素的背景（背景图片或颜色）是否延伸到边框下面。"><code>background-clip</code></a> 影响。</p>
+
+<p>当 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-collapse" title="border-collapse CSS 属性是用来决定表格的边框是分开的还是合并的。在分隔模式下，相邻的单元格都拥有独立的边框。在合并模式下，相邻单元格共享边框。"><code>border-collapse</code></a> 的值为 <code>collapse</code> 时，<code>border-radius</code> 属性不会被应用到表格（</p>）元素上。<table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+ 
+  
+   <em>radius</em>
+   <img alt="all-corner.png" class="default internal" src="./border-radius - CSS（层叠样式表） _ MDN_files/=all-corner.png">
+   可以是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>&lt;length&gt;</code></a> 或者 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>&lt;percentage&gt;</code></a>，表示边框四角的圆角半径。只在单值语法中使用。
+  
+  
+   <em>top-left-and-bottom-right</em>
+   <img alt="top-left-bottom-right.png" class="default internal" src="./border-radius - CSS（层叠样式表） _ MDN_files/=top-left-bottom-right.png">
+   可以是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>&lt;length&gt;</code></a> 或者 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>&lt;percentage&gt;</code></a>，表示边框左上角和右下角的圆角半径。只在双值语法中使用。
+  
+  
+   <em>top-right-and-bottom-left</em>
+   <img alt="top-right-bottom-left.png" class="default internal" src="./border-radius - CSS（层叠样式表） _ MDN_files/=top-right-bottom-left.png">
+   可以是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>&lt;length&gt;</code></a> 或者 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>&lt;percentage&gt;</code></a>，表示边框右上角和左下角的圆角半径。只在双值或三值语法中使用。
+  
+  
+   <em>top-left</em>
+   <img alt="top-left.png" class="default internal" src="./border-radius - CSS（层叠样式表） _ MDN_files/=top-left.png">
+   可以是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>&lt;length&gt;</code></a> 或者 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>&lt;percentage&gt;</code></a>，表示边框左上角的圆角半径。只在三值或四值语法中使用。
+  
+  
+   <em>top-right</em>
+   <img alt="top-right.png" class="default internal" src="./border-radius - CSS（层叠样式表） _ MDN_files/=top-right.png">
+   可以是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>&lt;length&gt;</code></a> 或者 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>&lt;percentage&gt;</code></a>，表示边框右上角的圆角半径。只在四值语法中使用。
+  
+  
+   <em>bottom-right</em>
+   <img alt="bottom-rigth.png" class="default internal" src="./border-radius - CSS（层叠样式表） _ MDN_files/=bottom-rigth.png">
+   可以是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>&lt;length&gt;</code></a> 或者 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>&lt;percentage&gt;</code></a>，表示边框右下角的圆角半径。只在三值或四值语法中使用。
+  
+  
+   <em>bottom-left</em>
+   <img alt="bottom-left.png" class="default internal" src="./border-radius - CSS（层叠样式表） _ MDN_files/=bottom-left.png">
+   可以是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>&lt;length&gt;</code></a> 或者 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>&lt;percentage&gt;</code></a>，表示边框左下角的圆角半径。只在四值语法中使用。
+  
+  
+   <code>inherit</code>
+   &nbsp;
+   表示四个值都从父元素计算值继承。
+  
+ 
+
+
+<dl>
+ <dt><a id="&lt;length&gt;" name="&lt;length&gt;"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>&lt;length&gt;</code></a></dt>
+ <dd><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>&lt;length&gt;</code></a> 定义圆形半径或椭圆的半长轴，半短轴。负值无效。</dd>
+ <dt><a id="&lt;percentage&gt;" name="&lt;percentage&gt;"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>&lt;percentage&gt;</code></a></dt>
+ <dd>使用百分数定义圆形半径或椭圆的半长轴，半短轴。水平半轴相对于盒模型的宽度；垂直半轴相对于盒模型的高度。负值无效。</dd>
+</dl>
+
+<p>例如:</p>
+
+<pre class="brush: css line-numbers language-css"><code class=" language-css"><span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">em</span>/<span class="token number">5</span><span class="token unit">em</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* 等价于： */</span>
+
+<span class="token property">border-top-left-radius</span><span class="token punctuation">:</span>     <span class="token number">1</span><span class="token unit">em</span> <span class="token number">5</span><span class="token unit">em</span><span class="token punctuation">;</span>
+<span class="token property">border-top-right-radius</span><span class="token punctuation">:</span>    <span class="token number">1</span><span class="token unit">em</span> <span class="token number">5</span><span class="token unit">em</span><span class="token punctuation">;</span>
+<span class="token property">border-bottom-right-radius</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">em</span> <span class="token number">5</span><span class="token unit">em</span><span class="token punctuation">;</span>
+<span class="token property">border-bottom-left-radius</span><span class="token punctuation">:</span>  <span class="token number">1</span><span class="token unit">em</span> <span class="token number">5</span><span class="token unit">em</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="brush: css line-numbers language-css"><code class=" language-css"><span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token unit">px</span> <span class="token number">3</span><span class="token unit">px</span> <span class="token number">6</span><span class="token unit">px</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token unit">px</span> <span class="token number">4</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* 等价于： */</span>
+
+<span class="token property">border-top-left-radius</span><span class="token punctuation">:</span>     <span class="token number">4</span><span class="token unit">px</span> <span class="token number">2</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token property">border-top-right-radius</span><span class="token punctuation">:</span>    <span class="token number">3</span><span class="token unit">px</span> <span class="token number">4</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token property">border-bottom-right-radius</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token unit">px</span> <span class="token number">2</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token property">border-bottom-left-radius</span><span class="token punctuation">:</span>  <span class="token number">3</span><span class="token unit">px</span> <span class="token number">4</span><span class="token unit">px</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Formal_syntax" class="highlight-spanned"><span class="highlight-span">Formal syntax</span><a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#Formal_syntax" data-heading-id="Formal_syntax"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h3>
+
+<pre class="syntaxbox"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#length-percentage">&lt;length-percentage&gt;</a><a href="https://developer.mozilla.org/zh-CN/docs/CSS/Value_definition_syntax#Curly_braces_(_)" title="Curly braces: encloses two integers defining the minimal and maximal numbers of occurrences of the entity">{</a>1,4<a href="https://developer.mozilla.org/zh-CN/docs/CSS/Value_definition_syntax#Curly_braces_(_)" title="Curly braces: encloses two integers defining the minimal and maximal numbers of occurrences of the entity">}</a> <a href="https://developer.mozilla.org/zh-CN/docs/CSS/Value_definition_syntax#Brackets" title="Brackets: enclose several entities, combinators, and multipliers to transform them as a single component">[</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#length-percentage">&lt;length-percentage&gt;</a><a href="https://developer.mozilla.org/zh-CN/docs/CSS/Value_definition_syntax#Curly_braces_(_)" title="Curly braces: encloses two integers defining the minimal and maximal numbers of occurrences of the entity">{</a>1,4<a href="https://developer.mozilla.org/zh-CN/docs/CSS/Value_definition_syntax#Curly_braces_(_)" title="Curly braces: encloses two integers defining the minimal and maximal numbers of occurrences of the entity">}</a> <a href="https://developer.mozilla.org/zh-CN/docs/CSS/Value_definition_syntax#Brackets" title="Brackets: enclose several entities, combinators, and multipliers to transform them as a single component">]</a><a href="https://developer.mozilla.org/zh-CN/docs/CSS/Value_definition_syntax#Question_mark_()" title="Question mark: the entity is optional">?</a><p style="font-family: Open Sans,Arial,sans-serif; margin: 10px 0 0 0;">where <br><code style="font-family: Consolas,Monaco,&quot;Andale Mono&quot;,monospace;"><span id="length-percentage">&lt;length-percentage&gt;</span> = <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="Possible values: a number followed by&#39;em&#39;, &#39;ex&#39;, &#39;ch&#39;, &#39;rem&#39;, &#39;px&#39;, &#39;cm&#39;, &#39;mm&#39;, &#39;in&#39;, &#39;vh&#39;, &#39;vw&#39;, &#39;vmin&#39;, &#39;vmax&#39;, &#39;pt&#39;, &#39;pc&#39; or &#39;px&#39;, like 3px, 1.5cm, -0.5em or 0">&lt;length&gt;</a> <a href="https://developer.mozilla.org/zh-CN/docs/CSS/Value_definition_syntax#Single_bar" title="Single bar: exactly one of the entities must be present">|</a> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。">&lt;percentage&gt;</a></code></p></pre>
+
+<h2 id="示例">示例<a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E7%A4%BA%E4%BE%8B" data-heading-id="示例"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h2>
+
+<pre style="display: inline-block; margin: 10px; border: solid 10px; border-radius: 10px 40px 40px 10px;" class="line-numbers language-html"><code class=" language-html">border: solid 10px;
+  /* the border will curve into a 'D' */  
+  border-radius: 10px 40px 40px 10px;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre style="display: inline-block; margin: 10px; border: groove 1em red; border-radius: 2em;" class="line-numbers language-html"><code class=" language-html">border: groove 1em red;  
+  border-radius: 2em;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre style="display: inline-block; margin: 10px; background: gold; border: ridge gold; border-radius: 13em/3em;" class="line-numbers language-html"><code class=" language-html">background: gold;
+  border: ridge gold;
+  border-radius: 13em/3em;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre style="display: inline-block; margin: 10px; background: gold; border: none; border-radius: 40px 10px;" class="line-numbers language-html"><code class=" language-html">border: none;
+  border-radius: 40px 10px;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre style="display: inline-block; margin: 10px; background: black; color: white; border: none; border-radius: 50%;" class="line-numbers language-html"><code class=" language-html">border: none;
+  border-radius: 50%;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="在线示例">在线示例<a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E5%9C%A8%E7%BA%BF%E7%A4%BA%E4%BE%8B" data-heading-id="在线示例"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h2>
+
+<p>示例 1 : <a class="external external-icon" href="http://jsfiddle.net/Tripad/qnGKj/2/" rel="noopener">http://jsfiddle.net/Tripad/qnGKj/2/</a></p>
+
+<p>示例 2 : <a class="external external-icon" href="http://jsfiddle.net/Tripad/qnGKj/3/" rel="noopener">http://jsfiddle.net/Tripad/qnGKj/3/</a></p>
+
+<p>示例 3 : <a class="external external-icon" href="http://jsfiddle.net/Tripad/qnGKj/4/" rel="noopener">http://jsfiddle.net/Tripad/qnGKj/4/</a></p>
+
+<p>示例 4 : <a class="external external-icon" href="http://jsfiddle.net/Tripad/qnGKj/5/" rel="noopener">http://jsfiddle.net/Tripad/qnGKj/5/</a></p>
+
+<p>示例 5 : <a class="external external-icon" href="http://jsfiddle.net/Tripad/qnGKj/6/" rel="noopener">http://jsfiddle.net/Tripad/qnGKj/6/</a></p>
+
+<h2 id="注意">注意<a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E6%B3%A8%E6%84%8F" data-heading-id="注意"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h2>
+
+<ul>
+ <li>在 Gecko 中，点状和虚线状圆角边框被渲染为了实线 <a class="external external-icon" href="https://bugzilla.mozilla.org/show_bug.cgi?id=382721" rel="noopener" title="FIXED: Dotted/dashed border-radiused corners are rendered as solid (no border-style support)">bug&nbsp;382721</a>.</li>
+ <li>当表格元素的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-collapse" title="border-collapse CSS 属性是用来决定表格的边框是分开的还是合并的。在分隔模式下，相邻的单元格都拥有独立的边框。在合并模式下，相邻单元格共享边框。"><code>border-collapse</code></a> 为&nbsp;<code>collapse</code>&nbsp;时&nbsp;<code style="font-style: normal; font-size: 13.63636302948px; line-height: 19.0909080505371px;">border-radius</code><span style="font-size: 13.63636302948px; line-height: 19.0909080505371px;">&nbsp;不会生效。</span></li>
+ <li>旧版本 WebKit 对于多重值有不同的处理方式，见下。</li>
+</ul>
+
+<h2 id="规范">规范<a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E8%A7%84%E8%8C%83" data-heading-id="规范"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h2>
+
+<table class="standard-table">
+ <thead>
+  <tr>
+   <th scope="col">Specification</th>
+   <th scope="col">Status</th>
+   <th scope="col">Comment</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><a class="external external-icon" href="https://drafts.csswg.org/css-backgrounds-3/#border-radius" hreflang="en" lang="en" rel="noopener">CSS Backgrounds and Borders Module Level&nbsp;3<br><small lang="zh-CN">border-radius</small></a></td>
+   <td><span class="spec-CR">Candidate Recommendation</span></td>
+   <td>&nbsp;</td>
+  </tr>
+ </tbody>
+</table>
+
+<table class="properties"><tbody><tr><th scope="row"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/initial_value">初始值</a></th><td>as each of the properties of the shorthand:<br><ul><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-left-radius" title="border-top-left-radius 用来设置元素左上角的圆角效果。这段圆弧（角）可以是圆或椭圆的一部分。如果其中有一个值为0，那么将无圆角效果（见border-top-left-radius取值方式)。"><code>border-top-left-radius</code></a>: <code>0</code></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-right-radius" title="border-top-right-radius属性设置元素的右上角弧形，这个圆弧可能是一个椭圆，或者其中一个值是0的话，就是没有圆弧，换句话就是说拐角是方形的。"><code>border-top-right-radius</code></a>: <code>0</code></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-right-radius" title="The border-bottom-right-radius CSS property sets the rounding of the bottom-right corner of the element."><code>border-bottom-right-radius</code></a>: <code>0</code></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-left-radius" title="总览"><code>border-bottom-left-radius</code></a>: <code>0</code></li></ul></td></tr><tr><th scope="row">适用元素</th><td>all elements; but User Agents are not required to apply to <code>table</code> and <code>inline-table</code> elements when <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-collapse" title="border-collapse CSS 属性是用来决定表格的边框是分开的还是合并的。在分隔模式下，相邻的单元格都拥有独立的边框。在合并模式下，相邻单元格共享边框。"><code>border-collapse</code></a> is <code>collapse</code>. The behavior on internal table elements is undefined for the moment.. It also applies to <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/::first-letter" title="CSS 伪元素 ::first-letter会选中某 block-level element（块级元素）第一行的第一个字母，并且文字所处的行之前没有其他内容（如图片和内联的表格） 。"><code>::first-letter</code></a>.</td></tr><tr><th scope="row"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/inheritance">是否是继承属性</a></th><td>否</td></tr><tr><th scope="row">Percentages</th><td>refer to the corresponding dimension of the border box</td></tr><tr><th scope="row">适用媒体</th><td>visual</td></tr><tr><th scope="row"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/computed_value">计算值</a></th><td>as each of the properties of the shorthand:<br><ul><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-left-radius" title="总览"><code>border-bottom-left-radius</code></a>: two absolute <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>length</code></a>s or <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>percentage</code></a>s</li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-right-radius" title="The border-bottom-right-radius CSS property sets the rounding of the bottom-right corner of the element."><code>border-bottom-right-radius</code></a>: two absolute <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>length</code></a>s or <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>percentage</code></a>s</li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-left-radius" title="border-top-left-radius 用来设置元素左上角的圆角效果。这段圆弧（角）可以是圆或椭圆的一部分。如果其中有一个值为0，那么将无圆角效果（见border-top-left-radius取值方式)。"><code>border-top-left-radius</code></a>: two absolute <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>length</code></a>s or <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>percentage</code></a>s</li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-right-radius" title="border-top-right-radius属性设置元素的右上角弧形，这个圆弧可能是一个椭圆，或者其中一个值是0的话，就是没有圆弧，换句话就是说拐角是方形的。"><code>border-top-right-radius</code></a>: two absolute <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" title="&lt;length&gt;是表示距离尺寸的一种css数据格式。许多CSS属性使用它，比如width、margin、padding、font-size、border-width、text-shadow。"><code>length</code></a>s or <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>percentage</code></a>s</li></ul></td></tr><tr><th scope="row">Animation type</th><td>as each of the properties of the shorthand:<br><ul><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-left-radius" title="border-top-left-radius 用来设置元素左上角的圆角效果。这段圆弧（角）可以是圆或椭圆的一部分。如果其中有一个值为0，那么将无圆角效果（见border-top-left-radius取值方式)。"><code>border-top-left-radius</code></a>: a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#Interpolation" title="Values of the &lt;length&gt; CSS data type are interpolated as real, floating-point numbers.">length</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/percentage#Interpolation" title="Values of the &lt;percentage&gt; CSS data type are interpolated as real, floating-point numbers.">percentage</a> or calc();</li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-right-radius" title="border-top-right-radius属性设置元素的右上角弧形，这个圆弧可能是一个椭圆，或者其中一个值是0的话，就是没有圆弧，换句话就是说拐角是方形的。"><code>border-top-right-radius</code></a>: a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#Interpolation" title="Values of the &lt;length&gt; CSS data type are interpolated as real, floating-point numbers.">length</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/percentage#Interpolation" title="Values of the &lt;percentage&gt; CSS data type are interpolated as real, floating-point numbers.">percentage</a> or calc();</li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-right-radius" title="The border-bottom-right-radius CSS property sets the rounding of the bottom-right corner of the element."><code>border-bottom-right-radius</code></a>: a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#Interpolation" title="Values of the &lt;length&gt; CSS data type are interpolated as real, floating-point numbers.">length</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/percentage#Interpolation" title="Values of the &lt;percentage&gt; CSS data type are interpolated as real, floating-point numbers.">percentage</a> or calc();</li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-left-radius" title="总览"><code>border-bottom-left-radius</code></a>: a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#Interpolation" title="Values of the &lt;length&gt; CSS data type are interpolated as real, floating-point numbers.">length</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/percentage#Interpolation" title="Values of the &lt;percentage&gt; CSS data type are interpolated as real, floating-point numbers.">percentage</a> or calc();</li></ul></td></tr><tr><th scope="row">正规顺序</th><td>the unique non-ambiguous order defined by the formal grammar</td></tr></tbody></table>
+
+
+<h2 id="浏览器兼容性">浏览器兼容性<a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7" data-heading-id="浏览器兼容性"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h2>
+
+<div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a class="external external-icon" href="https://github.com/mdn/browser-compat-data" rel="noopener">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
+
+<div class="bc-data"><a class="bc-github-link external external-icon" href="https://github.com/mdn/browser-compat-data" rel="noopener">Update compatibility data on GitHub</a><table class="bc-table bc-table-web"><thead><tr class="bc-platforms"><td></td><th class="bc-platform-desktop" colspan="6"><span>Desktop</span></th><th class="bc-platform-mobile" colspan="6"><span>Mobile</span></th></tr><tr class="bc-browsers"><td></td><th class="bc-browser-chrome"><span class="bc-head-txt-label bc-head-icon-chrome">Chrome</span></th><th class="bc-browser-edge"><span class="bc-head-txt-label bc-head-icon-edge">Edge</span></th><th class="bc-browser-firefox"><span class="bc-head-txt-label bc-head-icon-firefox">Firefox</span></th><th class="bc-browser-ie"><span class="bc-head-txt-label bc-head-icon-ie">Internet Explorer</span></th><th class="bc-browser-opera"><span class="bc-head-txt-label bc-head-icon-opera">Opera</span></th><th class="bc-browser-safari"><span class="bc-head-txt-label bc-head-icon-safari">Safari</span></th><th class="bc-browser-webview_android"><span class="bc-head-txt-label bc-head-icon-webview_android">Android webview</span></th><th class="bc-browser-chrome_android"><span class="bc-head-txt-label bc-head-icon-chrome_android">Chrome for Android</span></th><th class="bc-browser-firefox_android"><span class="bc-head-txt-label bc-head-icon-firefox_android">Firefox for Android</span></th><th class="bc-browser-opera_android"><span class="bc-head-txt-label bc-head-icon-opera_android">Opera for Android</span></th><th class="bc-browser-safari_ios"><span class="bc-head-txt-label bc-head-icon-safari_ios">Safari on iOS</span></th><th class="bc-browser-samsunginternet_android"><span class="bc-head-txt-label bc-head-icon-samsunginternet_android">Samsung Internet</span></th></tr></thead><tbody><tr><th scope="row"><code>border-radius</code></th><td class="bc-supports-yes bc-browser-chrome bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-1"><span class="bc-browser-name">Chrome</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-1"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div></dt><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> Chrome ignores <code>border-radius</code> on <code>&lt;select&gt;</code> elements unless <code>-webkit-appearance</code> is overridden to an appropriate value.</dd><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              1<div class="bc-icons"><abbr class="only-icon" title="Implemented with the vendor prefix: -webkit-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> </div></dt><dd><abbr class="only-icon" title="Implemented with the vendor prefix: -webkit-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> Implemented with the vendor prefix: -webkit-</dd></dl></section></td><td class="bc-supports-yes bc-browser-edge bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-2"><span class="bc-browser-name">Edge</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              12<div class="bc-icons"></div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-2"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              12<div class="bc-icons"></div></dt><dd></dd><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              12<div class="bc-icons"><abbr class="only-icon" title="Implemented with the vendor prefix: -webkit-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> </div></dt><dd><abbr class="only-icon" title="Implemented with the vendor prefix: -webkit-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> Implemented with the vendor prefix: -webkit-</dd></dl></section></td><td class="bc-supports-yes bc-browser-firefox bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-3"><span class="bc-browser-name">Firefox</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-3"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div></dt><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> Prior to Firefox 50, border styles of rounded corners (with <code>border-radius</code>) were always rendered as if <code>border-style</code> was <code>solid</code>. This has been fixed in Firefox 50.</dd><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> To conform to the CSS3 standard, Firefox 4 changes the handling of <a href="https://developer.mozilla.org/docs/Web/CSS/percentage"><code>&lt;percentage&gt;</code></a> values to match the specification. You can specify an ellipse as a border on an arbitrary sized element with <code>border-radius: 50%;</code>. Firefox 4 also makes rounded corners clip content and images if <a href="https://developer.mozilla.org/docs/Web/CSS/overflow"><code>overflow</code></a><code>: visible</code> is not set.</dd><dt class="bc-supports-no bc-supports"><abbr class="bc-level-no only-icon" title="No support">
+              <span>No support</span>
+            </abbr>1&nbsp;— 12<div class="bc-icons"><abbr class="only-icon" title="Implemented with the vendor prefix: -moz-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> </div></dt><dd><abbr class="only-icon" title="Implemented with the vendor prefix: -moz-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> Implemented with the vendor prefix: -moz-</dd></dl></section></td><td class="bc-supports-yes bc-browser-ie"><span class="bc-browser-name">IE</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              9</td><td class="bc-supports-yes bc-browser-opera bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-4"><span class="bc-browser-name">Opera</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              10.5<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-4"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              10.5<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div></dt><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> Before Opera 11.60, replaced elements with <code>border-radius</code> do not have rounded corners.</dd></dl></section></td><td class="bc-supports-yes bc-browser-safari bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-5"><span class="bc-browser-name">Safari</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              5<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-5"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              5<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div></dt><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> Safari ignores <code>border-radius</code> on <code>&lt;select&gt;</code> elements unless <code>-webkit-appearance</code> is overridden to an appropriate value.</dd><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              3<div class="bc-icons"><abbr class="only-icon" title="Implemented with the vendor prefix: -webkit-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> </div></dt><dd><abbr class="only-icon" title="Implemented with the vendor prefix: -webkit-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> Implemented with the vendor prefix: -webkit-</dd></dl></section></td><td class="bc-supports-yes bc-browser-webview_android bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-6"><span class="bc-browser-name">WebView Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              2<div class="bc-icons"><abbr class="only-icon" title="Implemented with the vendor prefix: -webkit-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-6"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              2<div class="bc-icons"><abbr class="only-icon" title="Implemented with the vendor prefix: -webkit-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> </div></dt><dd><abbr class="only-icon" title="Implemented with the vendor prefix: -webkit-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> Implemented with the vendor prefix: -webkit-</dd></dl></section></td><td class="bc-supports-yes bc-browser-chrome_android"><span class="bc-browser-name">Chrome Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-firefox_android bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-7"><span class="bc-browser-name">Firefox Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-7"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div></dt><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> Prior to Firefox 50, border styles of rounded corners (with <code>border-radius</code>) were always rendered as if <code>border-style</code> was <code>solid</code>. This has been fixed in Firefox 50.</dd><dt class="bc-supports-no bc-supports"><abbr class="bc-level-no only-icon" title="No support">
+              <span>No support</span>
+            </abbr>4&nbsp;— 14<div class="bc-icons"><abbr class="only-icon" title="Implemented with the vendor prefix: -moz-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> </div></dt><dd><abbr class="only-icon" title="Implemented with the vendor prefix: -moz-"><span>Prefixed</span><i class="ic-prefix"></i></abbr> Implemented with the vendor prefix: -moz-</dd></dl></section></td><td class="bc-supports-yes bc-browser-opera_android"><span class="bc-browser-name">Opera Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              11</td><td class="bc-supports-yes bc-browser-safari_ios"><span class="bc-browser-name">Safari iOS</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-samsunginternet_android"><span class="bc-browser-name">Samsung Internet Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td></tr><tr><th scope="row">Elliptical borders</th><td class="bc-supports-yes bc-browser-chrome bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-8"><span class="bc-browser-name">Chrome</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              1<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-8"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              1<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div></dt><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> Before Chrome 4, the slash <code>/</code> notation is unsupported. If two values are specified, then an elliptical border is drawn on all four corners. <code>-webkit-border-radius: 40px 10px;</code> is equivalent to <code>border-radius: 40px / 10px;</code>.</dd></dl></section></td><td class="bc-supports-yes bc-browser-edge"><span class="bc-browser-name">Edge</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              12</td><td class="bc-supports-yes bc-browser-firefox"><span class="bc-browser-name">Firefox</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4</td><td class="bc-supports-yes bc-browser-ie"><span class="bc-browser-name">IE</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              9</td><td class="bc-supports-yes bc-browser-opera"><span class="bc-browser-name">Opera</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-safari bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-9"><span class="bc-browser-name">Safari</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              3<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-9"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              3<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div></dt><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> Before Safari 4.1, the slash <code>/</code> notation is unsupported. If two values are specified, then an elliptical border is drawn on all four corners. <code>-webkit-border-radius: 40px 10px;</code> is equivalent to <code>border-radius: 40px / 10px;</code>.</dd></dl></section></td><td class="bc-supports-yes bc-browser-webview_android"><span class="bc-browser-name">WebView Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-chrome_android"><span class="bc-browser-name">Chrome Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              18</td><td class="bc-supports-yes bc-browser-firefox_android"><span class="bc-browser-name">Firefox Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4</td><td class="bc-supports-yes bc-browser-opera_android"><span class="bc-browser-name">Opera Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-safari_ios"><span class="bc-browser-name">Safari iOS</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4.2</td><td class="bc-supports-yes bc-browser-samsunginternet_android"><span class="bc-browser-name">Samsung Internet Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              1.0</td></tr><tr><th scope="row">4 values for 4 corners</th><td class="bc-supports-yes bc-browser-chrome"><span class="bc-browser-name">Chrome</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4</td><td class="bc-supports-yes bc-browser-edge"><span class="bc-browser-name">Edge</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              12</td><td class="bc-supports-yes bc-browser-firefox"><span class="bc-browser-name">Firefox</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4</td><td class="bc-supports-yes bc-browser-ie"><span class="bc-browser-name">IE</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              9</td><td class="bc-supports-yes bc-browser-opera"><span class="bc-browser-name">Opera</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-safari"><span class="bc-browser-name">Safari</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4.1</td><td class="bc-supports-yes bc-browser-webview_android"><span class="bc-browser-name">WebView Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-chrome_android"><span class="bc-browser-name">Chrome Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              18</td><td class="bc-supports-yes bc-browser-firefox_android"><span class="bc-browser-name">Firefox Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4</td><td class="bc-supports-yes bc-browser-opera_android"><span class="bc-browser-name">Opera Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-safari_ios"><span class="bc-browser-name">Safari iOS</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4.2</td><td class="bc-supports-yes bc-browser-samsunginternet_android"><span class="bc-browser-name">Samsung Internet Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              1.0</td></tr><tr><th scope="row">Percentages</th><td class="bc-supports-yes bc-browser-chrome"><span class="bc-browser-name">Chrome</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              8</td><td class="bc-supports-yes bc-browser-edge"><span class="bc-browser-name">Edge</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              12</td><td class="bc-supports-yes bc-browser-firefox bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-10"><span class="bc-browser-name">Firefox</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-10"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div></dt><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> <code>&lt;percentage&gt;</code> values are implemented in a non-standard way prior to Firefox 4. Both horizontal and vertical radii were relative to the width of the border box.</dd></dl></section></td><td class="bc-supports-yes bc-browser-ie"><span class="bc-browser-name">IE</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              9</td><td class="bc-supports-yes bc-browser-opera bc-has-history" tabindex="0" aria-expanded="false" aria-controls="bc-history-11"><span class="bc-browser-name">Opera</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              11.5<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div><button title="打开实现笔记" class="bc-history-link only-icon" tabindex="-1"><span>打开</span><i class="ic-history" aria-hidden="true"></i></button><section class="bc-history" id="bc-history-11"><dl><dt class="bc-supports-yes bc-supports"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              11.5<div class="bc-icons"><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> </div></dt><dd><abbr class="only-icon" title="See implementation notes"><span>Notes</span><i class="ic-footnote"></i></abbr> The implementation of <code>&lt;percentage&gt;</code> values was buggy in Opera prior to 11.50.</dd></dl></section></td><td class="bc-supports-yes bc-browser-safari"><span class="bc-browser-name">Safari</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              5.1</td><td class="bc-supports-yes bc-browser-webview_android"><span class="bc-browser-name">WebView Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-chrome_android"><span class="bc-browser-name">Chrome Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              18</td><td class="bc-supports-yes bc-browser-firefox_android"><span class="bc-browser-name">Firefox Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              4</td><td class="bc-supports-yes bc-browser-opera_android"><span class="bc-browser-name">Opera Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              11.5</td><td class="bc-supports-yes bc-browser-safari_ios"><span class="bc-browser-name">Safari iOS</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-samsunginternet_android"><span class="bc-browser-name">Samsung Internet Android</span><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td></tr></tbody></table><section class="bc-legend" id="sect12"><h3 class="offscreen highlight-spanned" id="Legend"><span class="highlight-span">Legend</span></h3><dl><dt><span class="bc-supports-yes bc-supports">
+                <abbr class="bc-level bc-level-yes only-icon" title="Full support">
+                 <span>Full support</span>
+                 &nbsp;
+                </abbr></span></dt><dd>Full support</dd><dt><abbr class="only-icon" title="See implementation notes."><span>See implementation notes.</span><i class="ic-footnote"></i></abbr></dt><dd>See implementation notes.</dd><dt><abbr class="only-icon" title="Requires a vendor prefix or different name for use."><span>Requires a vendor prefix or different name for use.</span><i class="ic-prefix"></i></abbr></dt><dd>Requires a vendor prefix or different name for use.</dd></dl></section></div>
+
+<div class="blockIndicator warning"><strong><a class="external external-icon" href="https://github.com/mdn/browser-compat-data" rel="noopener">We're converting our compatibility data into a machine-readable JSON format</a></strong>.
+            This compatibility table still uses the old format,
+            because we haven't yet converted the data it contains.
+            <strong><a class="new" href="https://developer.mozilla.org/zh-CN/docs/MDN/Contribute/Structures/Compatibility_tables" rel="nofollow">Find out how you can help!</a></strong></div>
+
+<div class="htab">
+    <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
+    <ul>
+        <li class="selected"><a>Desktop</a></li>
+        <li><a>Mobile</a></li>
+    </ul>
+<div id="compat-desktop" style="display: block;">
+<table class="compat-table">
+ <tbody>
+  <tr>
+   <th>Feature</th>
+   <th>Firefox (Gecko)</th>
+   <th>Chrome</th>
+   <th>Internet Explorer</th>
+   <th>Opera</th>
+   <th>Safari</th>
+  </tr>
+  <tr>
+   <td>Basic support</td>
+   <td><a href="https://developer.mozilla.org/en-US/Firefox/Releases/4" title="Released on 2011-03-22.">4.0</a> (2.0)<br>
+    1.0 (1.7 or earlier)<span class="inlineIndicator prefixBox prefixBoxInline" title="prefix"><a class="new" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Prefixes" rel="nofollow" title="The name of this feature is prefixed with &#39;-moz&#39; as this browser considers it experimental">-moz</a></span></td>
+   <td>4.0<br>
+    0.2<span class="inlineIndicator prefixBox prefixBoxInline" title="prefix"><a class="new" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Prefixes" rel="nofollow" title="The name of this feature is prefixed with &#39;-webkit&#39; as this browser considers it experimental">-webkit</a></span></td>
+   <td>9.0</td>
+   <td>10.5</td>
+   <td>5.0<br>
+    3.0<span class="inlineIndicator prefixBox prefixBoxInline" title="prefix"><a class="new" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Prefixes" rel="nofollow" title="The name of this feature is prefixed with &#39;-webkit&#39; as this browser considers it experimental">-webkit</a></span></td>
+  </tr>
+  <tr>
+   <td>Elliptical borders</td>
+   <td><a href="https://developer.mozilla.org/en-US/Firefox/Releases/3.5" title="Released on 2009-06-30.">3.5</a> (1.9.1)</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>yes, but see below</td>
+  </tr>
+  <tr>
+   <td>4 values for 4 corners</td>
+   <td>yes</td>
+   <td>4.0</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>5.0</td>
+  </tr>
+  <tr>
+   <td>Percentages</td>
+   <td>yes<br>
+    was <span class="icon-only-inline" title="This API has not been standardized."><i class="icon-warning-sign"> </i></span> (see below)</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>11.5</td>
+   <td>5.1</td>
+  </tr>
+ </tbody>
+</table>
+</div><div id="compat-mobile" style="display: none;">
+<table class="compat-table">
+ <tbody>
+  <tr>
+   <th>Feature</th>
+   <th>iOS Safari</th>
+   <th>Opera Mini</th>
+   <th>Opera Mobile</th>
+   <th>Android Browser</th>
+  </tr>
+  <tr>
+   <td>Basic support</td>
+   <td>3.2<span class="inlineIndicator prefixBox prefixBoxInline" title="prefix"><a class="new" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Prefixes" rel="nofollow" title="The name of this feature is prefixed with &#39;-webkit&#39; as this browser considers it experimental">-webkit</a></span></td>
+   <td><span style="color: #f00;">未实现</span></td>
+   <td><span style="color: #f00;">未实现</span></td>
+   <td>2.1<span class="inlineIndicator prefixBox prefixBoxInline" title="prefix"><a class="new" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Prefixes" rel="nofollow" title="The name of this feature is prefixed with &#39;-webkit&#39; as this browser considers it experimental">-webkit</a></span></td>
+  </tr>
+  <tr>
+   <td>Elliptical borders</td>
+   <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   <td><span style="color: #f00;">未实现</span></td>
+   <td><span style="color: #f00;">未实现</span></td>
+   <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+  </tr>
+  <tr>
+   <td>4 values for 4 corners</td>
+   <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   <td><span style="color: #f00;">未实现</span></td>
+   <td><span style="color: #f00;">未实现</span></td>
+   <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+  </tr>
+  <tr>
+   <td>Percentages</td>
+   <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   <td><span style="color: #f00;">未实现</span></td>
+   <td><span style="color: #f00;">未实现</span></td>
+   <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+  </tr>
+ </tbody>
+</table>
+</div></div>
+
+
+
+
+
+<h3 id="&lt;percentage&gt;_值" class="highlight-spanned"><span class="highlight-span"><code>&lt;percentage&gt;</code> 值</span><a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%3Cpercentage%3E_%E5%80%BC" data-heading-id="&lt;percentage&gt;_值"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h3>
+
+<ul>
+ <li>在旧版本的 Chrome 和 Safari 中不支持。(<a class="external external-icon" href="http://trac.webkit.org/changeset/66615" rel="noopener">fixed in Sepember 2010</a>)</li>
+ <li>在 11.50 版本以前的 Opera 中实现有问题。</li>
+ <li>Gecko 2.0 (Firefox 4) 版本前实现不标准：水平半轴和垂直半轴<strong>都</strong>相对于盒子模型的宽度。</li>
+ <li>在旧版本的 iOS (iOS 5 之前) 和 Android 中 (WebKit 532 之前) 不支持。</li>
+</ul>
+
+<h3 id="Gecko_notes" class="highlight-spanned"><span class="highlight-span">Gecko notes</span><a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#Gecko_notes" data-heading-id="Gecko_notes"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h3>
+
+<p>In Gecko 2.0 <code>-moz-border-radius</code> was renamed to <code>border-radius</code>; <code>-moz-border-radius</code> was supported as an alias until Gecko 12.0. In order to conform to the CSS3 standard, Gecko 2.0</p>
+
+<ul>
+ <li>changes the handling of <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/percentage" title="CSS 数据类型 &lt;percentage&gt; 表述一个百分比值。许多 CSS 属性 可以取百分比值，经常用以根据父对象来确定大小。百分比值由一个&lt;number&gt;具体数值后跟着%符号构成. 就像其它在css里的单位一样，在%和数值之间是不允许有空格的。"><code>&lt;percentage&gt;</code></a> values to match the specification. You can specify an ellipse as border on an arbitrary sized element just with <code>border-radius: 50%;</code></li>
+ <li>makes rounded corners clip content and images (if <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow" title="CSS属性 overflow 定义当一个元素的内容太大而无法适应 块级格式化上下文 时候该做什么。它是 overflow-x 和overflow-y的 简写属性 "><code>overflow</code></a><code>: visible</code> is not set)</li>
+</ul>
+
+<div class="note"><strong>Note:</strong> Support for the prefixed version (<code>-moz-border-radius</code>) was removed in Gecko 13.0 (Firefox 13.0 / Thunderbird 13.0 / SeaMonkey 2.10).</div>
+
+<h3 id="WebKit_notes" class="highlight-spanned"><span class="highlight-span">WebKit notes</span><a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#WebKit_notes" data-heading-id="WebKit_notes"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h3>
+
+<p>旧版本的 Safari 和 Chrome (532.5 之前)</p>
+
+<ul>
+ <li>只支持<strong>单值</strong>设定四个角。必须使用<a href="https://developer.mozilla.org/en/CSS/border-top-left-radius#Examples" style="text-decoration: underline;" title="en/CSS/border-top-left-radius#Examples">完整值</a>来设置不同角。&nbsp;</li>
+ <li>不支持斜杠 / 符号，如果指定了两个值，那么四个角都为椭圆角.
+  <pre class="line-numbers language-html"><code class=" language-html">/* 它们是等价的 */
+
+-webkit-border-radius: 40px 10px;
+        border-radius: 40px/10px;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+ </li>
+</ul>
+
+<h3 id="Opera_notes" class="highlight-spanned"><span class="highlight-span">Opera notes</span><a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#Opera_notes" data-heading-id="Opera_notes"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h3>
+
+<p>In Opera (prior to Opera 11.60), applying <code>border-radius</code> to replaced elements will not have rounded corners.</p>
+
+<h2 id="另请参阅">另请参阅<a class="local-anchor" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius#%E5%8F%A6%E8%AF%B7%E5%8F%82%E9%98%85" data-heading-id="另请参阅"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>节</span></a></h2>
+
+<ul>
+ <li>与 border-radius 相关的 CSS 属性：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-left-radius" title="border-top-left-radius 用来设置元素左上角的圆角效果。这段圆弧（角）可以是圆或椭圆的一部分。如果其中有一个值为0，那么将无圆角效果（见border-top-left-radius取值方式)。"><code>border-top-left-radius</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-right-radius" title="border-top-right-radius属性设置元素的右上角弧形，这个圆弧可能是一个椭圆，或者其中一个值是0的话，就是没有圆弧，换句话就是说拐角是方形的。"><code>border-top-right-radius</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-right-radius" title="The border-bottom-right-radius CSS property sets the rounding of the bottom-right corner of the element."><code>border-bottom-right-radius</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-left-radius" title="总览"><code>border-bottom-left-radius</code></a></li>
+</ul>
+                  
+                
+              </article>
+
+              <!-- contributors -->
+              <div class="wiki-block contributors">
+                <h2 class="offscreen">文档标签和贡献者</h2>
+                
+                
+  <div class="tag-attach-list contributors-sub">
+    <svg class="icon icon-tags" xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28" aria-hidden="true">
+    <path d="M7 7c0-1.109-.891-2-2-2s-2 .891-2 2 .891 2 2 2 2-.891 2-2zm16.672 9c0 .531-.219 1.047-.578 1.406l-7.672 7.688c-.375.359-.891.578-1.422.578s-1.047-.219-1.406-.578L1.422 13.906C.625 13.125 0 11.609 0 10.5V4c0-1.094.906-2 2-2h6.5c1.109 0 2.625.625 3.422 1.422l11.172 11.156c.359.375.578.891.578 1.422zm6 0c0 .531-.219 1.047-.578 1.406l-7.672 7.688a2.08 2.08 0 0 1-1.422.578c-.812 0-1.219-.375-1.75-.922l7.344-7.344c.359-.359.578-.875.578-1.406s-.219-1.047-.578-1.422L14.422 3.422C13.625 2.625 12.11 2 11 2h3.5c1.109 0 2.625.625 3.422 1.422l11.172 11.156c.359.375.578.891.578 1.422z"></path>
+</svg>
+    <strong>标签：</strong>&nbsp;
+    <ul class="tags tags-small">
+      
+        <li><a href="https://developer.mozilla.org/zh-CN/docs/tag/CSS" rel="nofollow">CSS</a></li>
+      
+        <li><a href="https://developer.mozilla.org/zh-CN/docs/tag/CSS%20%E5%B1%9E%E6%80%A7" rel="nofollow">CSS 属性</a></li>
+      
+        <li><a href="https://developer.mozilla.org/zh-CN/docs/tag/CSS%20%E8%BE%B9%E6%A1%86" rel="nofollow">CSS 边框</a></li>
+      
+        <li><a href="https://developer.mozilla.org/zh-CN/docs/tag/Web" rel="nofollow">Web</a></li>
+      
+        <li><a href="https://developer.mozilla.org/zh-CN/docs/tag/%E5%8F%82%E8%80%83" rel="nofollow">参考</a></li>
+      
+        <li><a href="https://developer.mozilla.org/zh-CN/docs/tag/%E5%B8%83%E5%B1%80" rel="nofollow">布局</a></li>
+      
+    </ul>
+  </div>
+
+
+                
+                  <div class="contributors-sub">
+                    <svg class="icon icon-group" xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28" aria-hidden="true">
+    <path d="M9.266 14a5.532 5.532 0 0 0-4.141 2H3.031C1.468 16 0 15.25 0 13.516 0 12.25-.047 8 1.937 8c.328 0 1.953 1.328 4.062 1.328.719 0 1.406-.125 2.078-.359A7.624 7.624 0 0 0 7.999 10c0 1.422.453 2.828 1.266 4zM26 23.953C26 26.484 24.328 28 21.828 28H8.172C5.672 28 4 26.484 4 23.953 4 20.422 4.828 15 9.406 15c.531 0 2.469 2.172 5.594 2.172S20.063 15 20.594 15C25.172 15 26 20.422 26 23.953zM10 4c0 2.203-1.797 4-4 4S2 6.203 2 4s1.797-4 4-4 4 1.797 4 4zm11 6c0 3.313-2.688 6-6 6s-6-2.688-6-6 2.688-6 6-6 6 2.688 6 6zm9 3.516C30 15.25 28.531 16 26.969 16h-2.094a5.532 5.532 0 0 0-4.141-2A7.066 7.066 0 0 0 22 10a7.6 7.6 0 0 0-.078-1.031A6.258 6.258 0 0 0 24 9.328C26.109 9.328 27.734 8 28.062 8c1.984 0 1.937 4.25 1.937 5.516zM28 4c0 2.203-1.797 4-4 4s-4-1.797-4-4 1.797-4 4-4 4 1.797 4 4z"></path>
+</svg>
+                    <strong>此页面的贡献者：</strong>
+                    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/mdnwebdocs-bot" rel="nofollow">mdnwebdocs-bot</a>, 
+    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/RainSlide" rel="nofollow">RainSlide</a>, 
+    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/zhuangyin" rel="nofollow">zhuangyin</a>, 
+    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/Simplexible" rel="nofollow">Simplexible</a>, 
+    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/Sebastianz" rel="nofollow">Sebastianz</a>, 
+    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/Prinz_Rana" rel="nofollow">Prinz_Rana</a>, 
+    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/Breezewish" rel="nofollow">Breezewish</a>, 
+    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/xiaoho" rel="nofollow">xiaoho</a>, 
+    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/teoli" rel="nofollow">teoli</a>, 
+    
+        <a href="https://developer.mozilla.org/zh-CN/profiles/yan" rel="nofollow">yan</a>
+    
+                  </div>
+                
+
+                
+                  <div class="contributors-sub">
+                    <svg class="icon icon-clock" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true">
+    <path d="M14 8.5v7c0 .281-.219.5-.5.5h-5a.494.494 0 0 1-.5-.5v-1c0-.281.219-.5.5-.5H12V8.5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zm6.5 5.5c0-4.688-3.813-8.5-8.5-8.5S3.5 9.313 3.5 14s3.813 8.5 8.5 8.5 8.5-3.813 8.5-8.5zm3.5 0c0 6.625-5.375 12-12 12S0 20.625 0 14 5.375 2 12 2s12 5.375 12 12z"></path>
+</svg>
+                    <strong>最后编辑者:</strong>
+                    <a href="https://developer.mozilla.org/zh-CN/profiles/mdnwebdocs-bot" rel="nofollow">mdnwebdocs-bot</a>,
+                    <time datetime="2019-03-23T19:32:13.121151-07:00">Mar 23, 2019, 7:32:13 PM</time>
+                  </div>
+                
+              </div>
+            </div>
+
+            
+              <!-- quick links and approvals strip -->
+              <div id="wiki-left" class="column-strip wiki-column">
+
+                <!-- crumbs -->
+                
+  
+    <nav class="crumbs" role="navigation">
+      <ol typeof="BreadcrumbList" vocab="https://schema.org/" aria-label="面包屑导航">
+        
+          <li property="itemListElement" typeof="ListItem" class="crumb">
+            <a href="https://developer.mozilla.org/zh-CN/docs/Web" property="item" typeof="WebPage">
+              <span property="name">Web 开发技术</span>
+            </a>
+            <meta property="position" content="1">
+          </li>
+        
+          <li property="itemListElement" typeof="ListItem" class="crumb">
+            <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS" property="item" typeof="WebPage">
+              <span property="name">CSS（层叠样式表）</span>
+            </a>
+            <meta property="position" content="2">
+          </li>
+        
+        <li property="itemListElement" typeof="ListItem" class="crumb">
+          <span property="name" aria-current="page">border-radius</span>
+        </li>
+      </ol>
+    </nav>
+  
+
+                
+                  <!-- quick links -->
+                  
+  <div class="quick-links" id="quick-links">
+    <div class="quick-links-head">相关主题</div>
+    <ol><li><strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS">CSS</a></strong></li><li><strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference">CSS 参考</a></strong></li><li><strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Backgrounds_and_Borders">CSS Backgrounds and Borders</a></strong></li><li class="toggle"><details open=""><summary>Guides</summary><ol><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Backgrounds_and_Borders/Scaling_background_images" title="CSS属性background-size 可以用于调整背景图片的宽和高，因背景图片布局的默认行为是根据其原尺寸平铺，所以background-size可修改其默认行为。你可以根据需要放大或缩小图片。">Scaling background images</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds" title="你可以应用多个背景到元素， 这些背景在你添加的第一个背景的上方和最后一个背景的下方分层叠加，">多个背景的应用</a></li></ol></details></li><li class="toggle"><details open=""><summary>属性</summary><ol><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background" title="background 是一种 CSS 简写属性，用于一次性集中定义各种背景属性，包括 color, image, origin 与 size, repeat 方式等等。"><code>background</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-attachment" title=""><code>background-attachment</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-clip" title="background-clip  设置元素的背景（背景图片或颜色）是否延伸到边框下面。"><code>background-clip</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-color" title="CSS属性中的 background-color 会设置元素的背景色, 属性的值为颜色值或关键字&quot;transparent&quot;二者选其一."><code>background-color</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-image" title="CSS background-image 属性用于为一个元素设置一个或者多个背景图像。图像在绘制时，以z方向堆叠的方式进行。先指定的图像会在之后指定的图像上面绘制。因此指定的第一个图像最接近用户。"><code>background-image</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-origin" title="background-origin 规定了指定背景图片background-image 属性的原点位置的背景相对区域."><code>background-origin</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-position" title="background-position 为每一个背景图片设置初始位置。 这个位置是相对于由 background-origin 定义的位置图层的。"><code>background-position</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="这是一个实验性的 API，请尽量不要在生产环境中使用它。"><i class="icon-beaker"> </i></span></span><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-position-x" title="background-position-x CSS 属性设置水平方向的位置，与每个背景图片等位置层设置属性 background-origin相关。更多信息请查看background-position属性，这个用的比较普遍。"><code>background-position-x</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="这是一个实验性的 API，请尽量不要在生产环境中使用它。"><i class="icon-beaker"> </i></span></span><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-position-y" title="background-position-y 属性用于设置初始状态时背景图片在垂直方向上的位置,这个位置相对于通过 background-origin 定义的背景层的原点进行定位. 需要获得更多的信息可以查看background-position 属性,这个属性已经得到了长久且广泛的支持."><code>background-position-y</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-repeat" title="background-repeat CSS 属性定义背景图像的重复方式。背景图像可以沿着水平轴，垂直轴，两个轴重复，或者根本不重复。"><code>background-repeat</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-size" title="background-size 设置背景图片大小。图片可以保有其原有的尺寸，或者拉伸到新的尺寸，或者在保持其原有比例的同时缩放到元素的可用空间的尺寸。"><code>background-size</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border" title="CSS的border属性是一个用于设置各种单独的边界属性的简写属性。border可以用于设置一个或多个以下属性的值： border-width, border-style, border-color。"><code>border</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom" title="border-bottom 简写属性把下边框的所有属性： border-bottom-color，border-bottom-style 与 border-bottom-width设置到了一个声明中。这些属性描述了元素的下边框样式。"><code>border-bottom</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-color" title="border-bottom-color 属性设置一个元素底部边框的颜色。应当指出，在多数情况下，CSS 简写属性 border-color 或 border-bottom 更方便实用。"><code>border-bottom-color</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-left-radius" title="总览"><code>border-bottom-left-radius</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-right-radius" title="The border-bottom-right-radius CSS property sets the rounding of the bottom-right corner of the element."><code>border-bottom-right-radius</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-style" title="The border-bottom-style CSS property sets the line style of an element&#39;s bottom border."><code>border-bottom-style</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-width" title=""><code>border-bottom-width</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-color" title="CSS属性 border-color 是一个用于设置元素四个边框颜色的快捷属性： border-top-color, border-right-color, border-bottom-color, border-left-color"><code>border-color</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image" title="border-image CSS属性允许在元素的边框上绘制图像。这使得绘制复杂的外观组件更加简单，也不用在某些情况下使用九宫格了。使用 border-image 时，其将会替换掉 border-style 属性所设置的边框样式。虽然规范要求使用 border-image 时边框样式必须存在，但一些浏览器可能没有实现这一点。"><code>border-image</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image-outset" title="border-image-outset属性定义边框图像可超出边框盒的大小。"><code>border-image-outset</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image-repeat" title="border-image-repeat 定义图片如何填充边框。或为单个值，设置所有的边框；或为两个值，分别设置水平与垂直的边框。"><code>border-image-repeat</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image-slice" title="通过border-image-source 引用边框图片后，border-image-slice属性会将图片分割为9个区域：四个角，四个边（edges）以及中心区域。四条切片线，从它们各自的侧面设置给定距离，控制区域的大小。"><code>border-image-slice</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image-source" title="CSS 属性 border-image-source  用于声明元素的边框图片（border-image）的资源"><code>border-image-source</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image-width" title="border-image-width 定义图像边框宽度。假如border-image-width大于已指定的border-width，那么它将向内部(padding/content)扩展."><code>border-image-width</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-left" title="CSS属性 border-left 是属性border-left-color, border-left-style, 和border-left-width的三者的缩写。这些属性都是在描述一个元素的左边的边框border。"><code>border-left</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-left-color" title="border-left-color 属性设置元素的左边框颜色。值得注意的是，在大数情况下使用 border-color 或 border-left 更加方便和普遍。"><code>border-left-color</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-left-style" title="The border-left-style CSS property sets the line style of an element&#39;s left border."><code>border-left-style</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-left-width" title="CSS 的 border-left-width 属性用来设置盒子的左边框的宽度。"><code>border-left-width</code></a></li><li><em><code>border-radius</code></em></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-right" title="CSS属性 border-right 是属性border-right-color, border-right-style, 和border-right-width的三者的缩写。这些属性都是在描述一个元素的右边的边框border。"><code>border-right</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-right-color" title="border-right-color CSS属性用来设置元素右边的 border. 这个属性的值也可以通过简写的CSS属性 border-color 或border-right来设置."><code>border-right-color</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-right-style" title="border-right-style 是border中的一个 CSS 子属性，描述的是右边框的样式 border."><code>border-right-style</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-right-width" title="CSS 的border-right-width 用来设置盒子右边框的宽度。"><code>border-right-width</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-style" title="border-style 是一个 CSS 简写属性，用来设定元素所有边框的样式。"><code>border-style</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top" title="CSS属性 border-top是属性 border-top-color, border-top-style, 和border-top-width 的三者的缩写。这些属性都是在描述一个元素的上方的边框border。"><code>border-top</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-color" title="border-top-color 属性用以设置某元素顶部 border的颜色。通常，用border-color 或 border-top 设置该颜色更为便捷可取。"><code>border-top-color</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-left-radius" title="Technical review completed. Editorial review completed."><code>border-top-left-radius</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-right-radius" title="border-top-right-radius属性设置元素的右上角弧形，这个圆弧可能是一个椭圆，或者其中一个值是0的话，就是没有圆弧，换句话就是说拐角是方形的。"><code>border-top-right-radius</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-style" title="border-top-style CSS 设置元素上边框的 border."><code>border-top-style</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-width" title="css属性 border-top-width 是用于设置盒模型的上边框的宽度"><code>border-top-width</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-width" title="border-width 属性可以设置盒子模型的边框宽度。使用简略的 border 属性通常会更加方便。"><code>border-width</code></a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow" title="box-shadow 以由逗号分隔的列表来描述一个或多个阴影效果。该属性可以让几乎所有元素的边框产生阴影。如果元素同时设置了 border-radius ，阴影也会有圆角效果。多个阴影的z-ordering 和多个 text shadows 规则相同(第一个阴影在最上面)。"><code>box-shadow</code></a></li></ol></details></li></ol>
+  </div>
+                
+
+                <!-- approvals -->
+                
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div> <!-- ends "main-content" -->
+
+    
+      <div class="newsletter-box">
+        <div class="newsletter">
+    <form id="newsletterForm" class="newsletter-form nodisable" name="newsletter-form" action="https://www.mozilla.org/en-US/newsletter/" method="post">
+        <div class="newsletter-head">
+            <h2 class="newsletter-teaser">学习 Web 开发的最佳实践</h2>
+            <p class="newsletter-description">让 MDN 将最新、最棒的内容直接投递到您的邮箱。</p>
+            
+            <p class="newsletter-lang">目前仅提供英文版新闻报。</p>
+            
+        </div>
+
+        <div class="newsletter-fields">
+            <input type="hidden" id="fmt" name="fmt" value="H">
+            <input type="hidden" id="newsletterNewslettersInput" name="newsletters" value="app-dev">
+            <div id="newsletterErrors" class="newsletter-errors"></div>
+
+            <div id="newsletterEmail" class="form-group newsletter-group-email">
+                <label for="newsletterEmailInput" class="form-label offscreen">电子邮件地址</label>
+                <input type="email" id="newsletterEmailInput" name="email" class="form-input newsletter-input-email" required="" placeholder="you@example.com" size="30">
+            </div>
+
+            <div id="newsletterPrivacy" class="form-group form-group-agree newsletter-group-privacy hidden">
+                <input type="checkbox" id="newsletterPrivacyInput" name="privacy" required="">
+                <label for="newsletterPrivacyInput">
+                我接受 Mozilla 按照<a href="https://www.mozilla.org/privacy/">隐私政策</a>所述的方式处理我的信息。
+                </label>
+            </div>
+            <div id="newsletterSubmit" class="newsletter-group-submit">
+                <button id="newsletter-submit" type="submit" class="button neutral newsletter-submit">
+                    立即注册<svg class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg" width="23" height="28" viewBox="0 0 23 28" aria-hidden="true">
+    <path d="M23 15a2.01 2.01 0 0 1-.578 1.422L12.25 26.594c-.375.359-.891.578-1.422.578s-1.031-.219-1.406-.578L8.25 25.422c-.375-.375-.594-.891-.594-1.422s.219-1.047.594-1.422L12.828 18h-11C.703 18 0 17.062 0 16v-2c0-1.062.703-2 1.828-2h11L8.25 7.406a1.96 1.96 0 0 1 0-2.812l1.172-1.172c.375-.375.875-.594 1.406-.594s1.047.219 1.422.594l10.172 10.172c.375.359.578.875.578 1.406z"></path>
+</svg>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div id="newsletterThanks" class="newsletter-thanks hidden">
+        <h2>谢谢！请检查您的收件箱以确认您的订阅。</h2>
+        <p>如果您以前未确认过订阅 Mozilla 相关的新闻简报，您可能必须这样做。请检查您的收件箱或垃圾邮件箱并找到我们发给您的电子邮件。
+        </p>
+    </div>
+    <button id="newsletterHide" type="button" class="only-icon newsletter-hide">
+        <span>隐藏新闻报注册</span>
+        <svg class="icon icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28" aria-hidden="true" role="img"><title></title><path d="M20.281 20.656c0 .391-.156.781-.438 1.062l-2.125 2.125c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438L11 19.249l-4.594 4.594c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438l-2.125-2.125c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062L6.751 15l-4.594-4.594c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062l2.125-2.125c.281-.281.672-.438 1.062-.438s.781.156 1.062.438L11 10.751l4.594-4.594c.281-.281.672-.438 1.062-.438s.781.156 1.062.438l2.125 2.125c.281.281.438.672.438 1.062s-.156.781-.438 1.062L15.249 15l4.594 4.594c.281.281.438.672.438 1.062z"></path></svg>
+    </button>
+</div>
+      </div>
+    
+
+  <menu type="context" id="edit-history-menu">
+    <menuitem data-action="/zh-CN/users/signin?next=/zh-CN/docs/Web/CSS/border-radius%24edit" label="编辑页面"></menuitem>
+    <menuitem data-action="/zh-CN/docs/Web/CSS/border-radius$history" label="查看页面历史"></menuitem>
+  </menu>
+
+      </div>
+  </main>
+        <div id="developer_needs" class="mdn-cta-container" aria-expanded="false" aria-hidden="true" data-banner="developer_needs">
+    <div id="mdn-cta-content" class="mdn-cta-content cta-background-linear"><div id="developer-needs" class="mdn-cta-content-container">
+    <h2 class="mdn-cta-title slab-text">
+        MDN 问卷
+    </h2>
+    <p class="mdn-cta-copy">
+        请帮助我们了解网页开发者与设计师最重要的 10 个需求。
+    </p>
+</div>
+<p class="mdn-cta-button-container">
+    <a href="https://qsurvey.mozilla.com/s3/Developer-Needs-Assessment-2019" class="mdn-cta-button" target="_blank" rel="noopener">填写问卷</a>
+</p>
+    </div>
+    <div class="mdn-cta-controls">
+        <button type="button" id="mdn-cta-collapse" class="mdn-cta-collapse hide-collapse" aria-labelledby="mdn-cta-minimize-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-chevron-down" width="26" height="26" aria-hidden="true"><title id="mdn-cta-minimize-icon">最小化
+            横幅</title><g fill-rule="nonzero" fill="none"><circle fill="#222" cx="13" cy="13" r="13"></circle><path d="M13.544 17.31l6.23-6.16c.301-.297.301-.778 0-1.075l-.726-.719a.776.776 0 0 0-1.087-.001L13 14.237 8.039 9.355a.776.776 0 0 0-1.087.001l-.727.719c-.3.297-.3.778 0 1.075l6.23 6.16c.301.298.789.298 1.09 0z" fill="#FFF"></path></g></svg>
+        </button>
+        <button type="button" id="mdn-cta-close" class="mdn-cta-close" aria-labelledby="mdn-cta-close-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-close" width="22" height="28" viewBox="0 0 22 28" aria-hidden="true" role="img"><title id="mdn-cta-close-icon">关闭
+            横幅</title><path d="M20.281 20.656c0 .391-.156.781-.438 1.062l-2.125 2.125c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438L11 19.249l-4.594 4.594c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438l-2.125-2.125c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062L6.751 15l-4.594-4.594c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062l2.125-2.125c.281-.281.672-.438 1.062-.438s.781.156 1.062.438L11 10.751l4.594-4.594c.281-.281.672-.438 1.062-.438s.781.156 1.062.438l2.125 2.125c.281.281.438.672.438 1.062s-.156.781-.438 1.062L15.249 15l4.594 4.594c.281.281.438.672.438 1.062z"></path></svg>
+        </button>
+    </div>
+</div>
+    
+  <!-- Footer -->
+    <footer id="nav-footer" class="nav-footer">
+      <div class="center">
+          <a href="https://developer.mozilla.org/zh-CN/" class="nav-footer-logo">MDN Web 文档</a>
+<div class="footer-group footer-group-mdn">
+  <h2 class="footer-title">MDN</h2>
+  <ul class="footer-list">
+    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web">网络技术</a></li>
+    <li><a href="https://developer.mozilla.org/zh-CN/docs/Learn">了解 Web 开发</a></li>
+    <li><a href="https://developer.mozilla.org/docs/MDN/About">关于 MDN</a></li>
+    <li><a href="https://developer.mozilla.org/zh-CN/docs/MDN/Feedback">反馈</a></li>
+    <li class="footer-social">
+        <a href="https://twitter.com/mozdevnet">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-twitter" width="26" height="28" viewBox="0 0 26 28" aria-label="Twitter" role="img" focusable="false">
+    <title>Twitter</title>
+    <path d="M25.312 6.375a10.85 10.85 0 0 1-2.531 2.609c.016.219.016.438.016.656 0 6.672-5.078 14.359-14.359 14.359-2.859 0-5.516-.828-7.75-2.266.406.047.797.063 1.219.063 2.359 0 4.531-.797 6.266-2.156a5.056 5.056 0 0 1-4.719-3.5c.313.047.625.078.953.078.453 0 .906-.063 1.328-.172a5.048 5.048 0 0 1-4.047-4.953v-.063a5.093 5.093 0 0 0 2.281.641 5.044 5.044 0 0 1-2.25-4.203c0-.938.25-1.797.688-2.547a14.344 14.344 0 0 0 10.406 5.281 5.708 5.708 0 0 1-.125-1.156 5.045 5.045 0 0 1 5.047-5.047 5.03 5.03 0 0 1 3.687 1.594 9.943 9.943 0 0 0 3.203-1.219 5.032 5.032 0 0 1-2.219 2.781c1.016-.109 2-.391 2.906-.781z"></path>
+</svg>
+        </a>
+    </li>
+    <li class="footer-social">
+        <a href="https://github.com/mdn/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-github" width="24" height="28" viewBox="0 0 24 28" aria-label="GitHub" role="img" focusable="false">
+    <title>GitHub</title>
+    <path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+</svg>
+        </a>
+    </li>
+  </ul>
+</div>
+
+          <a href="https://mozilla.org/" class="nav-footer-mozilla">Mozilla</a>
+<div class="footer-group footer-group-mozilla">
+  <h2 class="footer-title">Mozilla</h2>
+  <ul class="footer-list">
+    <li><a href="https://www.mozilla.org/about/">关于</a></li>
+    <li><a href="https://www.mozilla.org/contact/">联系我们</a></li>
+    <li><a href="https://www.mozilla.org/firefox/?utm_source=developer.mozilla.org&amp;utm_campaign=footer&amp;utm_medium=referral">Firefox</a></li>
+    <li class="footer-social">
+        <a href="https://twitter.com/mozilla">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-twitter" width="26" height="28" viewBox="0 0 26 28" aria-label="Twitter" role="img" focusable="false">
+    <title>Twitter</title>
+    <path d="M25.312 6.375a10.85 10.85 0 0 1-2.531 2.609c.016.219.016.438.016.656 0 6.672-5.078 14.359-14.359 14.359-2.859 0-5.516-.828-7.75-2.266.406.047.797.063 1.219.063 2.359 0 4.531-.797 6.266-2.156a5.056 5.056 0 0 1-4.719-3.5c.313.047.625.078.953.078.453 0 .906-.063 1.328-.172a5.048 5.048 0 0 1-4.047-4.953v-.063a5.093 5.093 0 0 0 2.281.641 5.044 5.044 0 0 1-2.25-4.203c0-.938.25-1.797.688-2.547a14.344 14.344 0 0 0 10.406 5.281 5.708 5.708 0 0 1-.125-1.156 5.045 5.045 0 0 1 5.047-5.047 5.03 5.03 0 0 1 3.687 1.594 9.943 9.943 0 0 0 3.203-1.219 5.032 5.032 0 0 1-2.219 2.781c1.016-.109 2-.391 2.906-.781z"></path>
+</svg>
+        </a>
+    </li>
+    <li class="footer-social">
+        <a href="https://www.instagram.com/mozillagram/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-instagram" width="24" height="28" viewBox="0 0 24 28" aria-label="Instagram" role="img" focusable="false">
+    <title>Instagram</title>
+    <path d="M16 14c0-2.203-1.797-4-4-4s-4 1.797-4 4 1.797 4 4 4 4-1.797 4-4zm2.156 0c0 3.406-2.75 6.156-6.156 6.156S5.844 17.406 5.844 14 8.594 7.844 12 7.844s6.156 2.75 6.156 6.156zm1.688-6.406c0 .797-.641 1.437-1.437 1.437S16.97 8.39 16.97 7.594s.641-1.437 1.437-1.437 1.437.641 1.437 1.437zM12 4.156c-1.75 0-5.5-.141-7.078.484-.547.219-.953.484-1.375.906s-.688.828-.906 1.375c-.625 1.578-.484 5.328-.484 7.078s-.141 5.5.484 7.078c.219.547.484.953.906 1.375s.828.688 1.375.906c1.578.625 5.328.484 7.078.484s5.5.141 7.078-.484c.547-.219.953-.484 1.375-.906s.688-.828.906-1.375c.625-1.578.484-5.328.484-7.078s.141-5.5-.484-7.078c-.219-.547-.484-.953-.906-1.375s-.828-.688-1.375-.906C17.5 4.015 13.75 4.156 12 4.156zM24 14c0 1.656.016 3.297-.078 4.953-.094 1.922-.531 3.625-1.937 5.031s-3.109 1.844-5.031 1.937c-1.656.094-3.297.078-4.953.078s-3.297.016-4.953-.078c-1.922-.094-3.625-.531-5.031-1.937S.173 20.875.08 18.953C-.014 17.297.002 15.656.002 14s-.016-3.297.078-4.953c.094-1.922.531-3.625 1.937-5.031s3.109-1.844 5.031-1.937c1.656-.094 3.297-.078 4.953-.078s3.297-.016 4.953.078c1.922.094 3.625.531 5.031 1.937s1.844 3.109 1.937 5.031C24.016 10.703 24 12.344 24 14z"></path>
+</svg>
+        </a>
+    </li>
+  </ul>
+</div>
+
+          
+  
+    <form class="languages go" method="get" action="https://developer.mozilla.org/zh-CN/docs/Web">
+      <label for="language">其他语言：</label>
+      <select id="language" class="wiki-l10n" name="next" dir="ltr">
+        <option title="简体中文" data-locale="zh-CN" value="/zh-CN/docs/Web/CSS/border-radius" selected="">
+          中文 (简体) (zh-CN)
+        </option>
+        
+          <option title="英语 (美国)" data-locale="zh-CN" value="/en-US/docs/Web/CSS/border-radius">
+            English (US) (en-US)
+          </option>
+          <option title="德语" data-locale="zh-CN" value="/de/docs/Web/CSS/border-radius">
+            Deutsch (de)
+          </option>
+          <option title="西班牙语" data-locale="zh-CN" value="/es/docs/Web/CSS/border-radius">
+            Español (es)
+          </option>
+          <option title="法语" data-locale="zh-CN" value="/fr/docs/Web/CSS/border-radius">
+            Français (fr)
+          </option>
+          <option title="日语" data-locale="zh-CN" value="/ja/docs/Web/CSS/border-radius">
+            日本語 (ja)
+          </option>
+          <option title="朝鲜语" data-locale="zh-CN" value="/ko/docs/Web/CSS/border-radius">
+            한국어 (ko)
+          </option>
+          <option title="波兰语" data-locale="zh-CN" value="/pl/docs/Web/CSS/border-radius">
+            Polski (pl)
+          </option>
+          <option title="葡萄牙语 (巴西)" data-locale="zh-CN" value="/pt-BR/docs/Web/CSS/border-radius">
+            Português (do&nbsp;Brasil) (pt-BR)
+          </option>
+          <option title="俄语" data-locale="zh-CN" value="/ru/docs/Web/CSS/border-radius">
+            Русский (ru)
+          </option>
+      </select>
+      <noscript><button type="submit">转到</button></noscript>
+    </form>
+  
+
+
+          
+            <ul class="footer-tos">
+              <li><a href="https://www.mozilla.org/about/legal/terms/mozilla">使用条款</a></li>
+              <li><a href="https://www.mozilla.org/privacy/websites/">隐私</a></li>
+              <li><a href="https://www.mozilla.org/privacy/websites/#cookies">Cookie</a></li>
+            </ul>
+
+            <div id="license" class="contentinfo">
+              <p>© 2005-2019 Mozilla 及各贡献者</p> <p>内容可按<a href="https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses">这些许可协议</a>使用。</p>
+            </div>
+          
+      </div>
+    </footer> 
+
+  <!-- site js -->
+  
+    
+    <!--[if lte IE 8]><script type="text/javascript" src="https://developer.mozilla.org/static/build/js/selectivizr.8bb9e662e963.js" charset="utf-8"></script><![endif]-->
+
+    
+    <script src="./border-radius - CSS（层叠样式表） _ MDN_files/javascript.c2c6bbb821c9.js"></script>
+    <script type="text/javascript" src="./border-radius - CSS（层叠样式表） _ MDN_files/main.b0f831aaadf5.js" charset="utf-8"></script>
+    <script>
+    if (window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
+  </script>
+    
+  
+    <script async="" type="text/javascript" src="./border-radius - CSS（层叠样式表） _ MDN_files/wiki.ae83915abe8f.js" charset="utf-8"></script>
+
+
+  
+
+  
+
+  
+
+  
+    <script async="" type="text/javascript" src="./border-radius - CSS（层叠样式表） _ MDN_files/newsletter.532963e204cb.js" charset="utf-8"></script>
+  
+
+  
+    <script async="" type="text/javascript" src="./border-radius - CSS（层叠样式表） _ MDN_files/banners.c6436b9ca87a.js" charset="utf-8"></script>
+  
+
+
+</body></html>
